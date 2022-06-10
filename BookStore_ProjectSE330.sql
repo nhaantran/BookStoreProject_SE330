@@ -48,46 +48,16 @@ Total money,
 constraint PK_Customer primary key(CustomerID)
 )
 
-Create table Author
-(
-AuthorID int IDENTITY(1,1),
--- AuthorID int AUTO_INCREMENT,
 
-Name nvarchar(30),
-NumofProducts smallint,
-constraint PK_Author primary key(AuthorID)
-)
-
-
-Create table Supplier
-(
-SupplierID int IDENTITY(1,1),
--- SupplierID int AUTO_INCREMENT,
-
-Name nvarchar(30),
-Email varchar(30),
-NumofProducts smallint,
-constraint PK_Supplier primary key(SupplierID)
-)
-
-Create table Publisher(
-PublisherID int IDENTITY(1,1),
--- PublisherID int AUTO_INCREMENT,
-
-Name nvarchar(30),
-Email varchar(30),
-NumofProducts smallint,
-constraint PK_Publisher primary key(PublisherID)
-)
 
 create table Book
 (
 BookID int IDENTITY(1,1),
 -- BookID int AUTO_INCREMENT,
 
-Supplier int,
-Author int,
-Publisher int,
+Supplier varchar(30),
+Author varchar(30),
+Publisher varchar(30),
 Name nvarchar(30),
 Description nvarchar(100),
 Edition numeric(2,2),
@@ -163,17 +133,7 @@ alter table Bill
 ADD constraint FK_BCI
 foreign key(CustomerID) references Customer(CustomerID);
 
-alter table Book
-ADD constraint FK_BSI
-foreign key(Supplier) references Supplier(SupplierID);
 
-alter table Book
-ADD constraint FK_BAI
-foreign key(Author) references Author(AuthorID);
-
-alter table Book
-ADD constraint FK_BPI
-foreign key(Publisher) references Publisher(PublisherID);
 
 alter table Book_Discount
 ADD constraint FK_BKDBI
@@ -193,40 +153,7 @@ foreign key(DiscountID) references Discount(DiscountID);
 
 /*
 
-INSERT INTO Author
-(Name)
-VALUES
-('Nam Cao'),
-('Vinh'),
-('Tiến'),
-('Quang Tín'),
-('Nhân'),
-('Huy'),
-('Alice'),
-('Elisa'),
-('Bruce'),
-('Hảo');
 
-INSERT INTO Publisher
-(Name,Email)
-VALUES
-('uit','uit@edu.vn'),
-('khtn','khtn@edu.vn'),
-('bku','bku@edu.vn'),
-('iu','iu@edu.vn'),
-('nv','nv@edu.vn'),
-('ulaw','ulaw@edu.vn');
-
-
-INSERT INTO Supplier
-(Name,Email)
-VALUES
-('uit','uit@edu.vn'),
-('khtn','khtn@edu.vn'),
-('bku','bku@edu.vn'),
-('iu','iu@edu.vn'),
-('nv','nv@edu.vn'),
-('ulaw','ulaw@edu.vn');
 
 INSERT INTO Manager
 (Name,Phone,Email)
