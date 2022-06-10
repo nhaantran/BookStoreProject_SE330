@@ -47,7 +47,7 @@ public class Home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblsach = new javax.swing.JLabel();
         clickbook = new javax.swing.JPanel();
-        menusupplier = new javax.swing.JPanel();
+        menudiscount = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         lblncc = new javax.swing.JLabel();
         clicksupplier = new javax.swing.JPanel();
@@ -67,10 +67,10 @@ public class Home extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         lblbookstoreicon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        usericon = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        lblUSERID = new javax.swing.JLabel();
+        lblUSERMAIL = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         lbllogout = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -126,7 +126,7 @@ public class Home extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         statisticpane = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        supplierpane = new javax.swing.JPanel();
+        discountpane = new javax.swing.JPanel();
         supplierpanetitle = new javax.swing.JPanel();
         lblkhotitle2 = new javax.swing.JLabel();
         lblkhotitleview2 = new javax.swing.JLabel();
@@ -299,17 +299,17 @@ public class Home extends javax.swing.JFrame {
 
         sidepane.add(menubook, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 260, -1));
 
-        menusupplier.setBackground(new java.awt.Color(246, 248, 250));
-        menusupplier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menusupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+        menudiscount.setBackground(new java.awt.Color(246, 248, 250));
+        menudiscount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menudiscount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menusupplierMouseClicked(evt);
+                menudiscountMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                menusupplierMouseEntered(evt);
+                menudiscountMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                menusupplierMouseExited(evt);
+                menudiscountMouseExited(evt);
             }
         });
 
@@ -317,7 +317,7 @@ public class Home extends javax.swing.JFrame {
 
         lblncc.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         lblncc.setForeground(new java.awt.Color(0, 0, 0));
-        lblncc.setText("Supplier");
+        lblncc.setText("Discount");
 
         clicksupplier.setBackground(new java.awt.Color(246, 248, 250));
 
@@ -332,33 +332,33 @@ public class Home extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout menusupplierLayout = new javax.swing.GroupLayout(menusupplier);
-        menusupplier.setLayout(menusupplierLayout);
-        menusupplierLayout.setHorizontalGroup(
-            menusupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menusupplierLayout.createSequentialGroup()
+        javax.swing.GroupLayout menudiscountLayout = new javax.swing.GroupLayout(menudiscount);
+        menudiscount.setLayout(menudiscountLayout);
+        menudiscountLayout.setHorizontalGroup(
+            menudiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menudiscountLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblncc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(clicksupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        menusupplierLayout.setVerticalGroup(
-            menusupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menusupplierLayout.createSequentialGroup()
-                .addGroup(menusupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menusupplierLayout.createSequentialGroup()
+        menudiscountLayout.setVerticalGroup(
+            menudiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menudiscountLayout.createSequentialGroup()
+                .addGroup(menudiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menudiscountLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel9))
-                    .addGroup(menusupplierLayout.createSequentialGroup()
+                    .addGroup(menudiscountLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblncc)))
                 .addContainerGap(16, Short.MAX_VALUE))
             .addComponent(clicksupplier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        sidepane.add(menusupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 260, -1));
+        sidepane.add(menudiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 260, -1));
 
         menucustomer.setBackground(new java.awt.Color(246, 248, 250));
         menucustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -562,23 +562,23 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
-        jLabel6.setText("jLabel6");
+        usericon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
+        usericon.setText("jLabel6");
 
         jLabel7.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("User ID:");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("this is user ID");
-        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        lblUSERID.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        lblUSERID.setForeground(new java.awt.Color(0, 0, 0));
+        lblUSERID.setText("this is user ID");
+        lblUSERID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel18.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("this is user Mail");
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        lblUSERMAIL.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        lblUSERMAIL.setForeground(new java.awt.Color(0, 0, 0));
+        lblUSERMAIL.setText("this is user Mail");
+        lblUSERMAIL.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel19.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
@@ -599,17 +599,17 @@ public class Home extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usericon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17))
+                        .addComponent(lblUSERID))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18)))
+                        .addComponent(lblUSERMAIL)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(lbllogout)
                 .addContainerGap())
@@ -620,15 +620,15 @@ public class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbllogout)
-                    .addComponent(jLabel6)
+                    .addComponent(usericon)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel17))
+                            .addComponent(lblUSERID))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
-                            .addComponent(jLabel18))))
+                            .addComponent(lblUSERMAIL))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1203,7 +1203,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        supplierpane.setBackground(new java.awt.Color(246, 248, 250));
+        discountpane.setBackground(new java.awt.Color(246, 248, 250));
 
         supplierpanetitle.setBackground(new java.awt.Color(0, 153, 255));
 
@@ -1394,16 +1394,16 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1163, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout supplierpaneLayout = new javax.swing.GroupLayout(supplierpane);
-        supplierpane.setLayout(supplierpaneLayout);
-        supplierpaneLayout.setHorizontalGroup(
-            supplierpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout discountpaneLayout = new javax.swing.GroupLayout(discountpane);
+        discountpane.setLayout(discountpaneLayout);
+        discountpaneLayout.setHorizontalGroup(
+            discountpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(supplierpanetitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        supplierpaneLayout.setVerticalGroup(
-            supplierpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(supplierpaneLayout.createSequentialGroup()
+        discountpaneLayout.setVerticalGroup(
+            discountpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(discountpaneLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(supplierpanetitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1628,7 +1628,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(billpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(datapaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(bookpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(supplierpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(discountpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(customerpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datapaneLayout.setVerticalGroup(
@@ -1644,7 +1644,7 @@ public class Home extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(customerpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(supplierpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(discountpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(1635, 1635, 1635)))
         );
 
@@ -1722,17 +1722,17 @@ public class Home extends javax.swing.JFrame {
         lblsetmenufontplain(lblsach);
     }//GEN-LAST:event_menubookMouseExited
 
-    private void menusupplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menusupplierMouseEntered
+    private void menudiscountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menudiscountMouseEntered
         // TODO add your handling code here:
-        menuentercolor(menusupplier);
+        menuentercolor(menudiscount);
         lblsetmenufontbold(lblncc);
-    }//GEN-LAST:event_menusupplierMouseEntered
+    }//GEN-LAST:event_menudiscountMouseEntered
 
-    private void menusupplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menusupplierMouseExited
+    private void menudiscountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menudiscountMouseExited
         // TODO add your handling code here:
-        menuexitcolor(menusupplier);
+        menuexitcolor(menudiscount);
         lblsetmenufontplain(lblncc);
-    }//GEN-LAST:event_menusupplierMouseExited
+    }//GEN-LAST:event_menudiscountMouseExited
 
     private void menucustomerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menucustomerMouseEntered
         // TODO add your handling code here:
@@ -1781,7 +1781,7 @@ public class Home extends javax.swing.JFrame {
     private void setpanevisible(JPanel panel){
         storagepane.setVisible(false);
         bookpane.setVisible(false);
-        supplierpane.setVisible(false);
+        discountpane.setVisible(false);
         customerpane.setVisible(false);
         billpane.setVisible(false);
         statisticpane.setVisible(false);
@@ -1813,11 +1813,11 @@ public class Home extends javax.swing.JFrame {
         setclickColor(clickbook);
     }//GEN-LAST:event_menubookMouseClicked
 
-    private void menusupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menusupplierMouseClicked
+    private void menudiscountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menudiscountMouseClicked
         // TODO add your handling code here:
-        setpanevisible(supplierpane);
+        setpanevisible(discountpane);
         setclickColor(clicksupplier);
-    }//GEN-LAST:event_menusupplierMouseClicked
+    }//GEN-LAST:event_menudiscountMouseClicked
 
     private void menucustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menucustomerMouseClicked
         // TODO add your handling code here:
@@ -1997,6 +1997,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel customerpane;
     private javax.swing.JPanel customerpanetitle;
     private javax.swing.JPanel datapane;
+    private javax.swing.JPanel discountpane;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2014,8 +2015,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -2026,7 +2025,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2070,6 +2068,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel khopane2title;
     private javax.swing.JPanel khopane3;
     private javax.swing.JPanel khopane3title;
+    private javax.swing.JLabel lblUSERID;
+    private javax.swing.JLabel lblUSERMAIL;
     private javax.swing.JLabel lblbookstore;
     private javax.swing.JLabel lblbookstoreicon;
     private javax.swing.JLabel lblhoadon;
@@ -2090,14 +2090,13 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel menubill;
     private javax.swing.JPanel menubook;
     private javax.swing.JPanel menucustomer;
+    private javax.swing.JPanel menudiscount;
     private javax.swing.JPanel menustatistic;
     private javax.swing.JPanel menustorage;
-    private javax.swing.JPanel menusupplier;
     private javax.swing.JPanel screen;
     private javax.swing.JPanel sidepane;
     private javax.swing.JPanel statisticpane;
     private javax.swing.JPanel storagepane;
-    private javax.swing.JPanel supplierpane;
     private javax.swing.JPanel supplierpanetitle;
     private javax.swing.JTable tblbook;
     private javax.swing.JTable tblcustomer;
@@ -2111,5 +2110,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField txtfinddelete;
     private javax.swing.JTextField txtfinddelete1;
     private javax.swing.JTextField txtfinddelete2;
+    private javax.swing.JLabel usericon;
     // End of variables declaration//GEN-END:variables
 }
