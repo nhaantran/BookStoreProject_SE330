@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package View;
+package View.Tab;
 
 import java.awt.Color;
 
@@ -10,12 +10,12 @@ import java.awt.Color;
  *
  * @author nhaantran
  */
-public class UpdateSupplier extends javax.swing.JPanel {
+public class UpdateCustomer extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdateBook
      */
-    public UpdateSupplier() {
+    public UpdateCustomer() {
         initComponents();
     }
 
@@ -36,13 +36,15 @@ public class UpdateSupplier extends javax.swing.JPanel {
         txtid = new javax.swing.JTextField();
         txtname = new javax.swing.JTextField();
         txtemail = new javax.swing.JTextField();
-        txtaddress = new javax.swing.JTextField();
+        txtdateofbirth = new javax.swing.JTextField();
         updatebookpane3 = new javax.swing.JPanel();
         jRadioButton4 = new javax.swing.JRadioButton();
-        txtnumofproducts = new javax.swing.JTextField();
+        txtgender = new javax.swing.JTextField();
         rdbtnphone = new javax.swing.JRadioButton();
         txtphone = new javax.swing.JTextField();
         btnupdate = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        txttotal = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -59,7 +61,7 @@ public class UpdateSupplier extends javax.swing.JPanel {
         rdbtnnational.setText("Email");
 
         jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton3.setText("Address");
+        jRadioButton3.setText("DateofBirth");
 
         txtid.setForeground(new java.awt.Color(153, 153, 153));
         txtid.setText("Enter ID");
@@ -94,14 +96,14 @@ public class UpdateSupplier extends javax.swing.JPanel {
             }
         });
 
-        txtaddress.setForeground(new java.awt.Color(153, 153, 153));
-        txtaddress.setText("Enter Address");
-        txtaddress.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtdateofbirth.setForeground(new java.awt.Color(153, 153, 153));
+        txtdateofbirth.setText("Enter DateofBirth");
+        txtdateofbirth.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtaddressFocusGained(evt);
+                txtdateofbirthFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtaddressFocusLost(evt);
+                txtdateofbirthFocusLost(evt);
             }
         });
 
@@ -122,7 +124,7 @@ public class UpdateSupplier extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtemail, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtname, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtaddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
+                        .addComponent(txtdateofbirth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         updatebookpane1Layout.setVerticalGroup(
@@ -143,23 +145,23 @@ public class UpdateSupplier extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton3)
-                    .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdateofbirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
         updatebookpane3.setBackground(new java.awt.Color(255, 255, 255));
 
         jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton4.setText("NumofProducts");
+        jRadioButton4.setText("Gender");
 
-        txtnumofproducts.setForeground(new java.awt.Color(153, 153, 153));
-        txtnumofproducts.setText("Enter NumofProducts");
-        txtnumofproducts.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtgender.setForeground(new java.awt.Color(153, 153, 153));
+        txtgender.setText("Enter Gender");
+        txtgender.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtnumofproductsFocusGained(evt);
+                txtgenderFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtnumofproductsFocusLost(evt);
+                txtgenderFocusLost(evt);
             }
         });
 
@@ -183,23 +185,40 @@ public class UpdateSupplier extends javax.swing.JPanel {
         btnupdate.setText("Update Supplier");
         btnupdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButton1.setText("Total");
+
+        txttotal.setForeground(new java.awt.Color(153, 153, 153));
+        txttotal.setText("Enter Total");
+        txttotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txttotalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txttotalFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout updatebookpane3Layout = new javax.swing.GroupLayout(updatebookpane3);
         updatebookpane3.setLayout(updatebookpane3Layout);
         updatebookpane3Layout.setHorizontalGroup(
             updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(updatebookpane3Layout.createSequentialGroup()
-                .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton4)
-                    .addComponent(rdbtnphone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtphone)
-                    .addComponent(txtnumofproducts))
-                .addContainerGap())
-            .addGroup(updatebookpane3Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(66, 66, 66)
                 .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(updatebookpane3Layout.createSequentialGroup()
+                .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton4)
+                    .addComponent(rdbtnphone)
+                    .addComponent(jRadioButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txttotal)
+                    .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtphone)
+                        .addComponent(txtgender)))
+                .addContainerGap())
         );
         updatebookpane3Layout.setVerticalGroup(
             updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,14 +226,18 @@ public class UpdateSupplier extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4)
-                    .addComponent(txtnumofproducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtgender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdbtnphone)
                     .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
+                .addGroup(updatebookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(btnupdate)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -226,7 +249,7 @@ public class UpdateSupplier extends javax.swing.JPanel {
                 .addComponent(updatebookpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(updatebookpane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +260,7 @@ public class UpdateSupplier extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updatebookpane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -290,37 +313,37 @@ public class UpdateSupplier extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtemailFocusLost
 
-    private void txtaddressFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtaddressFocusGained
+    private void txtdateofbirthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdateofbirthFocusGained
         // TODO add your handling code here:
-        if (txtaddress.getText().equals("Enter Address")) {
-            txtaddress.setText("");
-            txtaddress.setForeground(new Color(153, 153, 153));
+        if (txtdateofbirth.getText().equals("Enter DateofBirth")) {
+            txtdateofbirth.setText("");
+            txtdateofbirth.setForeground(new Color(153, 153, 153));
         }
-    }//GEN-LAST:event_txtaddressFocusGained
+    }//GEN-LAST:event_txtdateofbirthFocusGained
 
-    private void txtaddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtaddressFocusLost
+    private void txtdateofbirthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdateofbirthFocusLost
         // TODO add your handling code here:
-        if (txtaddress.getText().equals("")) {
-            txtaddress.setText("Enter Address");
-            txtaddress.setForeground(new Color(153, 153, 153));
+        if (txtdateofbirth.getText().equals("")) {
+            txtdateofbirth.setText("Enter DateofBirth");
+            txtdateofbirth.setForeground(new Color(153, 153, 153));
         }
-    }//GEN-LAST:event_txtaddressFocusLost
+    }//GEN-LAST:event_txtdateofbirthFocusLost
 
-    private void txtnumofproductsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnumofproductsFocusGained
+    private void txtgenderFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtgenderFocusGained
         // TODO add your handling code here:
-        if (txtnumofproducts.getText().equals("Enter NumofProducts")) {
-            txtnumofproducts.setText("");
-            txtnumofproducts.setForeground(new Color(153, 153, 153));
+        if (txtgender.getText().equals("Enter Gender")) {
+            txtgender.setText("");
+            txtgender.setForeground(new Color(153, 153, 153));
         }
-    }//GEN-LAST:event_txtnumofproductsFocusGained
+    }//GEN-LAST:event_txtgenderFocusGained
 
-    private void txtnumofproductsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnumofproductsFocusLost
+    private void txtgenderFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtgenderFocusLost
         // TODO add your handling code here:
-        if (txtnumofproducts.getText().equals("")) {
-            txtnumofproducts.setText("Enter NumofProducts");
-            txtnumofproducts.setForeground(new Color(153, 153, 153));
+        if (txtgender.getText().equals("")) {
+            txtgender.setText("Enter Gender");
+            txtgender.setForeground(new Color(153, 153, 153));
         }
-    }//GEN-LAST:event_txtnumofproductsFocusLost
+    }//GEN-LAST:event_txtgenderFocusLost
 
     private void txtphoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtphoneFocusGained
         // TODO add your handling code here:
@@ -338,21 +361,39 @@ public class UpdateSupplier extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtphoneFocusLost
 
+    private void txttotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txttotalFocusGained
+        // TODO add your handling code here:
+        if(txttotal.getText().equals("")){
+            txttotal.setText("Enter Total");
+            txttotal.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txttotalFocusGained
+
+    private void txttotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txttotalFocusLost
+        // TODO add your handling code here:
+        if(txttotal.getText().equals("Enter Total")){
+            txttotal.setText("");
+            txttotal.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txttotalFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnupdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton rdbtnname;
     private javax.swing.JRadioButton rdbtnnational;
     private javax.swing.JRadioButton rdbtnphone;
-    private javax.swing.JTextField txtaddress;
+    private javax.swing.JTextField txtdateofbirth;
     private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtgender;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtnumofproducts;
     private javax.swing.JTextField txtphone;
+    private javax.swing.JTextField txttotal;
     private javax.swing.JPanel updatebookpane1;
     private javax.swing.JPanel updatebookpane3;
     // End of variables declaration//GEN-END:variables
