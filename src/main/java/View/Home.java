@@ -4,14 +4,19 @@
  */
 package View;
 
+import Model.Book.Book;
+import Model.Book.BookDao;
+import View.Tab.InsertBill;
 import View.Tab.UpdateDiscount;
 import View.Tab.InsertBook;
 import View.Tab.InsertCustomer;
 import View.Tab.InsertDiscount;
+import View.Tab.UpdateBill;
 import View.Tab.UpdateCustomer;
 import View.Tab.UpdateBook;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -187,7 +192,7 @@ public class Home extends javax.swing.JFrame {
         jSeparator15 = new javax.swing.JSeparator();
         txtfinddelete3 = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
-        tplbookoption1 = new javax.swing.JTabbedPane();
+        tplbilloption = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jSeparator16 = new javax.swing.JSeparator();
 
@@ -1784,7 +1789,7 @@ public class Home extends javax.swing.JFrame {
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane8)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(tplbookoption1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tplbilloption, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1796,7 +1801,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tplbookoption1)
+                    .addComponent(tplbilloption)
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2043,11 +2048,18 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jPanel1MouseClicked
 
+    private BookDao std;
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        BookDao std = new BookDao();
+        ArrayList<Book> list = std.findAll();
+        loadDatatoTable(list);
+        /*
         khopane1.setVisible(false);
         khopane2.setVisible(true);
         khopane3.setVisible(false);
+        */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -2109,10 +2121,11 @@ public class Home extends javax.swing.JFrame {
     private DefaultTableModel tblsupplierdata;
     private DefaultTableModel tblcustomerdata;
     
+    private javax.swing.JLabel test;
     private void inittable(){
         tblbookdata = new DefaultTableModel();
-        tblbookdata.setColumnIdentifiers(new String[]{"ID","Name","Description","National","Publisher","Supplier",
-        "BookCover", "Author", "Type", "YearofPublish", "NumPages", "Price"});
+        tblbookdata.setColumnIdentifiers(new String[]{"ID","Name","Description","Publisher","Supplier", "Author",
+        "BookCover", "Type","Edition", "ReleaseDate", "NumPages", "Price", "Note"});
         tblkho1.setModel(tblbookdata);
         tblkho2.setModel(tblbookdata);
         tblkho3.setModel(tblbookdata);
@@ -2124,9 +2137,25 @@ public class Home extends javax.swing.JFrame {
         
         tblcustomerdata = new DefaultTableModel();
         tblcustomerdata.setColumnIdentifiers(new String[]{"ID","Name","Email","Phone","DateofBirth","Gender","Total"});
-        tblcustomer.setModel(tblcustomerdata);
-        
-        
+        tblcustomer.setModel(tblcustomerdata);   
+    }
+    
+    private void loadDatatoTable(ArrayList<Book> list){
+        try{
+            test = new javax.swing.JLabel();
+            test.setText("Click here");
+            tblbookdata.setRowCount(0);
+            for(Book s : list){
+                tblbookdata.addRow(new Object[]{
+                    s.getID(), s.getDescription(),s.getAuthor(),s.getSupplier(),s.getPublisher(),
+                    s.getType(),s.getBookCover(),s.getEdition(), s.getReleaseDate(), s.getNumPages(), s.getPrice(),test.getText()
+                });   
+            }
+            tblbookdata.fireTableDataChanged();
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
     private InsertBook insertBookTab;
@@ -2135,6 +2164,8 @@ public class Home extends javax.swing.JFrame {
     private UpdateDiscount updateSupplierTab;
     private InsertCustomer insertCustomerTab;
     private UpdateCustomer updateCustomerTab;
+    private InsertBill insertBillTab;
+    private UpdateBill updateBillTab;
     
     private void inittab(){
         insertBookTab = new InsertBook();
@@ -2152,7 +2183,15 @@ public class Home extends javax.swing.JFrame {
         updateCustomerTab = new UpdateCustomer();
         tplcustomeroption.addTab("Insert", insertCustomerTab);
         tplcustomeroption.addTab("Update", updateCustomerTab);
+        
+        insertBillTab = new InsertBill();
+        updateBillTab = new UpdateBill();
+        tplbilloption.addTab("Insert", insertBillTab);
+        tplbilloption.addTab("Update", updateBillTab);
     }
+    
+    
+    
     
     /**
      * @param args the command line arguments
@@ -2329,8 +2368,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable tblkho2;
     private javax.swing.JTable tblkho3;
     private javax.swing.JTable tblsupplier;
+    private javax.swing.JTabbedPane tplbilloption;
     private javax.swing.JTabbedPane tplbookoption;
-    private javax.swing.JTabbedPane tplbookoption1;
     private javax.swing.JTabbedPane tplcustomeroption;
     private javax.swing.JTabbedPane tplsupplieroption;
     private javax.swing.JTextField txtfinddelete;

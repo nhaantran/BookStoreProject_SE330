@@ -4,21 +4,22 @@
  */
 package Model.Book;
 
-import Model.Model;
+import Model.Unit;
 /**
  *
  * @author nhaantran
  */
 
-public class Book extends Model {
+public class Book extends Unit {
     private String Description;
     private String National;
     private String Publisher;
-    private String Supplier;
+    private String Supplier;    
     private String BookCover;
     private String Author;
     private String Type;
-    private int YearofPublish;
+    private float Edition;
+    private String ReleaseDate;
     private int NumPages;
     private double Price;
 
@@ -31,13 +32,14 @@ public class Book extends Model {
         this.BookCover = "";
         this.Author = "";
         this.Type = "";
-        this.YearofPublish = 0;
+        this.Edition = 0;
+        this.ReleaseDate = "";
         this.NumPages = 0;
         this.Price = 0.0;
     }
     
-    public Book(String Description, String National, String Publisher, String Supplier, String BookCover, String Author, String Type, int YearofPublish, int NumPages, double Price, String ID) {
-        super(ID);
+    public Book(String Description, String National, String Publisher, String Supplier, String BookCover, String Author, String Type, float Edition, String YearofPublish, int NumPages, double Price, String Name,String ID) {
+        super(Name,ID);
         this.Description = Description;
         this.National = National;
         this.Publisher = Publisher;
@@ -45,11 +47,21 @@ public class Book extends Model {
         this.BookCover = BookCover;
         this.Author = Author;
         this.Type = Type;
-        this.YearofPublish = YearofPublish;
+        this.Edition = Edition;
+        this.ReleaseDate = YearofPublish;
         this.NumPages = NumPages;
         this.Price = Price;
     }
 
+    public float getEdition() {
+        return Edition;
+    }
+
+    public void setEdition(float Edition) {
+        this.Edition = Edition;
+    }
+
+    
     public String getDescription() {
         return Description;
     }
@@ -106,12 +118,12 @@ public class Book extends Model {
         this.Type = Type;
     }
 
-    public int getYearofPublish() {
-        return YearofPublish;
+    public String getReleaseDate() {
+        return ReleaseDate;
     }
 
-    public void setYearofPublish(int YearofPublish) {
-        this.YearofPublish = YearofPublish;
+    public void setReleaseDate(String ReleaseDate) {
+        this.ReleaseDate = ReleaseDate;
     }
 
     public int getNumPages() {

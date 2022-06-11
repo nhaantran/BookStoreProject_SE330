@@ -2645,7 +2645,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="tplbookoption1" min="-2" pref="826" max="-2" attributes="0"/>
+                              <Component id="tplbilloption" min="-2" pref="826" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2659,7 +2659,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tplbookoption1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tplbilloption" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPanel18" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -2855,7 +2855,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JTabbedPane" name="tplbookoption1">
+                    <Container class="javax.swing.JTabbedPane" name="tplbilloption">
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                     </Container>

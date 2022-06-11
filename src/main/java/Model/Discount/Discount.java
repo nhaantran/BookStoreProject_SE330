@@ -15,7 +15,7 @@ public class Discount extends Unit{
 
     public Discount() {
         super();
-        this.Value = Value;
+        this.Value = 0.0;
     }
     
     public Discount(double Value, String Name, String ID) {
