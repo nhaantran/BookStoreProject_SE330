@@ -4,6 +4,8 @@
  */
 package View.Tab;
 
+import Model.Book.Book;
+import Model.Book.BookDao;
 import java.awt.Color;
 
 /**
@@ -32,9 +34,9 @@ public class InsertBook extends javax.swing.JPanel {
         lblinsertname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
         lblinsertname1 = new javax.swing.JLabel();
-        txtyear = new javax.swing.JTextField();
+        txtreleasedate = new javax.swing.JTextField();
         lblinsertname2 = new javax.swing.JLabel();
-        txtnational = new javax.swing.JTextField();
+        txtedition = new javax.swing.JTextField();
         lblinsertname12 = new javax.swing.JLabel();
         txtnumpages = new javax.swing.JTextField();
         lblinsertname13 = new javax.swing.JLabel();
@@ -44,12 +46,12 @@ public class InsertBook extends javax.swing.JPanel {
         lblinsertname4 = new javax.swing.JLabel();
         lblinsertname5 = new javax.swing.JLabel();
         lblinsertname6 = new javax.swing.JLabel();
-        cbbsupplier = new javax.swing.JComboBox<>();
-        cbbbookcover = new javax.swing.JComboBox<>();
-        cbbauthor = new javax.swing.JComboBox<>();
-        cbbtype = new javax.swing.JComboBox<>();
         lblinsertname11 = new javax.swing.JLabel();
-        cbbpublisher = new javax.swing.JComboBox<>();
+        txtsupplier = new javax.swing.JTextField();
+        txtbookcover = new javax.swing.JTextField();
+        txtauthor = new javax.swing.JTextField();
+        txttype = new javax.swing.JTextField();
+        txtpublisher = new javax.swing.JTextField();
         insertbookpane3 = new javax.swing.JPanel();
         btnadd = new javax.swing.JButton();
         lblinsertname3 = new javax.swing.JLabel();
@@ -82,31 +84,31 @@ public class InsertBook extends javax.swing.JPanel {
 
         lblinsertname1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblinsertname1.setForeground(new java.awt.Color(0, 0, 0));
-        lblinsertname1.setText("Year");
+        lblinsertname1.setText("ReleaseDate");
 
-        txtyear.setForeground(new java.awt.Color(153, 153, 153));
-        txtyear.setText("Enter Year");
-        txtyear.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtreleasedate.setForeground(new java.awt.Color(153, 153, 153));
+        txtreleasedate.setText("Enter ReleaseDate");
+        txtreleasedate.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtyearFocusGained(evt);
+                txtreleasedateFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtyearFocusLost(evt);
+                txtreleasedateFocusLost(evt);
             }
         });
 
         lblinsertname2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblinsertname2.setForeground(new java.awt.Color(0, 0, 0));
-        lblinsertname2.setText("National:");
+        lblinsertname2.setText("Edition");
 
-        txtnational.setForeground(new java.awt.Color(153, 153, 153));
-        txtnational.setText("Enter National");
-        txtnational.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtedition.setForeground(new java.awt.Color(153, 153, 153));
+        txtedition.setText("Enter Edition");
+        txtedition.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtnationalFocusGained(evt);
+                txteditionFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtnationalFocusLost(evt);
+                txteditionFocusLost(evt);
             }
         });
 
@@ -153,8 +155,8 @@ public class InsertBook extends javax.swing.JPanel {
                             .addComponent(lblinsertname1))
                         .addGap(57, 57, 57)
                         .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtyear)
-                            .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)))
+                            .addComponent(txtreleasedate)
+                            .addComponent(txtname)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane1Layout.createSequentialGroup()
                         .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblinsertname12)
@@ -162,9 +164,9 @@ public class InsertBook extends javax.swing.JPanel {
                             .addComponent(lblinsertname2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtnational)
                             .addComponent(txtprice)
-                            .addComponent(txtnumpages))))
+                            .addComponent(txtnumpages, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtedition, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         insertbookpane1Layout.setVerticalGroup(
@@ -177,11 +179,11 @@ public class InsertBook extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname1)
-                    .addComponent(txtyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtreleasedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname2)
-                    .addComponent(txtnational, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtedition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname12)
@@ -211,19 +213,64 @@ public class InsertBook extends javax.swing.JPanel {
         lblinsertname6.setForeground(new java.awt.Color(0, 0, 0));
         lblinsertname6.setText("Type:");
 
-        cbbsupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbbbookcover.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbbauthor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbbtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lblinsertname11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblinsertname11.setForeground(new java.awt.Color(0, 0, 0));
         lblinsertname11.setText("Publisher:");
 
-        cbbpublisher.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtsupplier.setForeground(new java.awt.Color(153, 153, 153));
+        txtsupplier.setText("Enter Supplier");
+        txtsupplier.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtsupplierFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtsupplierFocusLost(evt);
+            }
+        });
+
+        txtbookcover.setForeground(new java.awt.Color(153, 153, 153));
+        txtbookcover.setText("Enter BookCover");
+        txtbookcover.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtbookcoverFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtbookcoverFocusLost(evt);
+            }
+        });
+
+        txtauthor.setForeground(new java.awt.Color(153, 153, 153));
+        txtauthor.setText("Enter Author");
+        txtauthor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtauthorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtauthorFocusLost(evt);
+            }
+        });
+
+        txttype.setForeground(new java.awt.Color(153, 153, 153));
+        txttype.setText("Enter Type");
+        txttype.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txttypeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txttypeFocusLost(evt);
+            }
+        });
+
+        txtpublisher.setForeground(new java.awt.Color(153, 153, 153));
+        txtpublisher.setText("Enter Publisher");
+        txtpublisher.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtpublisherFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpublisherFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout insertbookpane2Layout = new javax.swing.GroupLayout(insertbookpane2);
         insertbookpane2.setLayout(insertbookpane2Layout);
@@ -232,51 +279,42 @@ public class InsertBook extends javax.swing.JPanel {
             .addGroup(insertbookpane2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(insertbookpane2Layout.createSequentialGroup()
-                        .addComponent(lblinsertname7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbbsupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(insertbookpane2Layout.createSequentialGroup()
-                        .addComponent(lblinsertname6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbbtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(insertbookpane2Layout.createSequentialGroup()
-                        .addComponent(lblinsertname4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addComponent(cbbbookcover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(insertbookpane2Layout.createSequentialGroup()
-                        .addComponent(lblinsertname5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbbauthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(insertbookpane2Layout.createSequentialGroup()
-                        .addComponent(lblinsertname11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbbpublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(lblinsertname4)
+                    .addComponent(lblinsertname11)
+                    .addComponent(lblinsertname6)
+                    .addComponent(lblinsertname5)
+                    .addComponent(lblinsertname7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtsupplier)
+                    .addComponent(txtbookcover)
+                    .addComponent(txtauthor, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txttype, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtpublisher, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         insertbookpane2Layout.setVerticalGroup(
             insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(insertbookpane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname7)
-                    .addComponent(cbbsupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname4)
-                    .addComponent(cbbbookcover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbookcover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname5)
-                    .addComponent(cbbauthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtauthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname6)
-                    .addComponent(cbbtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txttype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insertbookpane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname11)
-                    .addComponent(cbbpublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtpublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -287,6 +325,11 @@ public class InsertBook extends javax.swing.JPanel {
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
         btnadd.setText("Add Book");
         btnadd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
 
         lblinsertname3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblinsertname3.setForeground(new java.awt.Color(0, 0, 0));
@@ -329,7 +372,7 @@ public class InsertBook extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(insertbookpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(insertbookpane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(insertbookpane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -367,37 +410,37 @@ public class InsertBook extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtnameFocusLost
 
-    private void txtyearFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtyearFocusGained
+    private void txtreleasedateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtreleasedateFocusGained
         // TODO add your handling code here:
-        if(txtyear.getText().equals("Enter Year")){
-            txtyear.setText("");
-            txtyear.setForeground(new Color(153,153,153));
+        if(txtreleasedate.getText().equals("Enter ReleaseDate")){
+            txtreleasedate.setText("");
+            txtreleasedate.setForeground(new Color(153,153,153));
         }
-    }//GEN-LAST:event_txtyearFocusGained
+    }//GEN-LAST:event_txtreleasedateFocusGained
 
-    private void txtyearFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtyearFocusLost
+    private void txtreleasedateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtreleasedateFocusLost
         // TODO add your handling code here:
-        if(txtyear.getText().equals("")){
-            txtyear.setText("Enter Year");
-            txtyear.setForeground(new Color(153,153,153));
+        if(txtreleasedate.getText().equals("")){
+            txtreleasedate.setText("Enter ReleaseDate");
+            txtreleasedate.setForeground(new Color(153,153,153));
         }
-    }//GEN-LAST:event_txtyearFocusLost
+    }//GEN-LAST:event_txtreleasedateFocusLost
 
-    private void txtnationalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnationalFocusGained
+    private void txteditionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txteditionFocusGained
         // TODO add your handling code here:
-        if(txtnational.getText().equals("Enter National")){
-            txtnational.setText("");
-            txtnational.setForeground(new Color(153,153,153));
+        if(txtedition.getText().equals("Enter Edition")){
+            txtedition.setText("");
+            txtedition.setForeground(new Color(153,153,153));
         }
-    }//GEN-LAST:event_txtnationalFocusGained
+    }//GEN-LAST:event_txteditionFocusGained
 
-    private void txtnationalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnationalFocusLost
+    private void txteditionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txteditionFocusLost
         // TODO add your handling code here:
-        if(txtnational.getText().equals("")){
-            txtnational.setText("Enter National");
-            txtnational.setForeground(new Color(153,153,153));
+        if(txtedition.getText().equals("")){
+            txtedition.setText("Enter Edition");
+            txtedition.setForeground(new Color(153,153,153));
         }
-    }//GEN-LAST:event_txtnationalFocusLost
+    }//GEN-LAST:event_txteditionFocusLost
 
     private void txtnumpagesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnumpagesFocusGained
         // TODO add your handling code here:
@@ -431,14 +474,108 @@ public class InsertBook extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtpriceFocusLost
 
+    private void txtsupplierFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsupplierFocusGained
+        // TODO add your handling code here:
+        if(txtsupplier.getText().equals("Enter Supplier")){
+            txtsupplier.setText("");
+            txtsupplier.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtsupplierFocusGained
+
+    private void txtsupplierFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsupplierFocusLost
+        // TODO add your handling code here:
+        if(txtsupplier.getText().equals("")){
+            txtsupplier.setText("Enter Supplier");
+            txtsupplier.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtsupplierFocusLost
+
+    private void txtbookcoverFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtbookcoverFocusGained
+        // TODO add your handling code here:
+        if(txtbookcover.getText().equals("Enter BookCover")){
+            txtbookcover.setText("");
+            txtbookcover.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtbookcoverFocusGained
+
+    private void txtbookcoverFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtbookcoverFocusLost
+        // TODO add your handling code here:
+        if(txtbookcover.getText().equals("")){
+            txtbookcover.setText("Enter BookCover");
+            txtbookcover.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtbookcoverFocusLost
+
+    private void txtauthorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtauthorFocusGained
+        // TODO add your handling code here:
+        if(txtauthor.getText().equals("Enter Author")){
+            txtauthor.setText("");
+            txtauthor.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtauthorFocusGained
+
+    private void txtauthorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtauthorFocusLost
+        // TODO add your handling code here:
+        if(txtauthor.getText().equals("")){
+            txtauthor.setText("Enter Author");
+            txtauthor.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtauthorFocusLost
+
+    private void txttypeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txttypeFocusGained
+        // TODO add your handling code here:
+        if(txttype.getText().equals("Enter Type")){
+            txttype.setText("");
+            txttype.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txttypeFocusGained
+
+    private void txttypeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txttypeFocusLost
+        // TODO add your handling code here:
+        if(txttype.getText().equals("")){
+            txttype.setText("Enter Type");
+            txttype.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txttypeFocusLost
+
+    private void txtpublisherFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpublisherFocusGained
+        // TODO add your handling code here:
+        if(txtpublisher.getText().equals("Enter Publisher")){
+            txtpublisher.setText("");
+            txtpublisher.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtpublisherFocusGained
+
+    private void txtpublisherFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpublisherFocusLost
+        // TODO add your handling code here:
+        if(txtpublisher.getText().equals("")){
+            txtpublisher.setText("Enter Publisher");
+            txtpublisher.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtpublisherFocusLost
+
+    BookDao std = new BookDao();
+    Book book = new Book();
+    
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+        book.setName(txtname.getText());
+        book.setReleaseDate(txtreleasedate.getText());
+        book.setDescription(txtdescription.getText());
+        book.setEdition(Float.valueOf(txtedition.getText()));
+        book.setNumPages(Integer.valueOf(txtnumpages.getText()));
+        book.setPrice(Double.valueOf(txtprice.getText()));
+        book.setSupplier(txtsupplier.getText());
+        book.setAuthor(txtauthor.getText());
+        book.setPublisher(txtpublisher.getText());
+        book.setType(txttype.getText());
+        book.setBookCover(txtbookcover.getText());
+        std.add(book);
+    }//GEN-LAST:event_btnaddActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnadd;
-    private javax.swing.JComboBox<String> cbbauthor;
-    private javax.swing.JComboBox<String> cbbbookcover;
-    private javax.swing.JComboBox<String> cbbpublisher;
-    private javax.swing.JComboBox<String> cbbsupplier;
-    private javax.swing.JComboBox<String> cbbtype;
     private javax.swing.JPanel insertbookpane1;
     private javax.swing.JPanel insertbookpane2;
     private javax.swing.JPanel insertbookpane3;
@@ -454,11 +591,16 @@ public class InsertBook extends javax.swing.JPanel {
     private javax.swing.JLabel lblinsertname5;
     private javax.swing.JLabel lblinsertname6;
     private javax.swing.JLabel lblinsertname7;
+    private javax.swing.JTextField txtauthor;
+    private javax.swing.JTextField txtbookcover;
     private javax.swing.JTextArea txtdescription;
+    private javax.swing.JTextField txtedition;
     private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtnational;
     private javax.swing.JTextField txtnumpages;
     private javax.swing.JTextField txtprice;
-    private javax.swing.JTextField txtyear;
+    private javax.swing.JTextField txtpublisher;
+    private javax.swing.JTextField txtreleasedate;
+    private javax.swing.JTextField txtsupplier;
+    private javax.swing.JTextField txttype;
     // End of variables declaration//GEN-END:variables
 }

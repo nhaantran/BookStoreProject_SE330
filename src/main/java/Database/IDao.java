@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 
 public interface IDao<T> {
-    ArrayList<T> printAll();
+    ArrayList<T> findAll();
     T add(T t);
     T update(T t);
     boolean delete(T t);

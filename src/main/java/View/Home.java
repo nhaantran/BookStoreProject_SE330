@@ -2048,11 +2048,11 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jPanel1MouseClicked
 
-    private BookDao std;
-    
+    private BookDao std = new BookDao();
+    private Book book = new Book();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        BookDao std = new BookDao();
+
         ArrayList<Book> list = std.findAll();
         loadDatatoTable(list);
         /*

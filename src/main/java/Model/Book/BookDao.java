@@ -7,6 +7,7 @@ package Model.Book;
 import Database.DatabaseConnector;
 import Database.IDao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -35,6 +36,41 @@ public class BookDao implements IDao<Book> {
         return std;
     }
 
+    /**
+     * BUG "The statement did not return a result set."
+     * @param t
+     * @return 
+     */
+    @Override
+    public Book add(Book t) {
+        String sql = "INSERT INTO Book ("
+                + "Name, Description, Author, Supplier,Edition,Type,BookCover, ReleaseDate, NumPages, Price) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?) ";
+
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setString(1, t.getName());
+            pstmt.setString(2, t.getDescription());
+            pstmt.setString(3, t.getAuthor());
+            pstmt.setString(4, t.getSupplier());
+            pstmt.setFloat(5, t.getEdition());
+            pstmt.setString(6, t.getType());
+            pstmt.setString(7, t.getBookCover());
+            pstmt.setString(8, t.getReleaseDate());
+            pstmt.setInt(9, t.getNumPages());
+            pstmt.setDouble(10, t.getPrice());
+            try ( ResultSet resultSet = pstmt.executeQuery()) {
+                if (resultSet.next()) {
+                    Book std = Create(resultSet);
+                    return std;
+                }else System.out.print("error!");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public ArrayList<Book> findAll() {
         String sql = "select * from Book";
         try {
@@ -55,44 +91,6 @@ public class BookDao implements IDao<Book> {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
-    }
-
-    public ArrayList<Book> printAll() {
-        String sql = "select * from Book";
-        try {
-
-            // connect database
-            Connection con = DatabaseConnector.openConnection();
-            Statement stm = con.createStatement();
-            ResultSet resultSet = stm.executeQuery(sql);
-
-            ArrayList<Book> list = new ArrayList<>();
-            // get ResultSet's meta data
-            ResultSetMetaData metaData = resultSet.getMetaData();
-
-            // display the column header in the ResultSet
-            for (int i = 1; i <= metaData.getColumnCount(); i++) {
-                System.out.printf("%-8s\t", metaData.getColumnName(i));
-            }
-            System.out.println();
-
-            while (resultSet.next()) {
-                Book std = Create(resultSet);
-                list.add(std);
-                for (int i = 1; i <= metaData.getColumnCount(); i++) {
-                    System.out.printf("%-8s\t", resultSet.getObject(i));
-                }
-                System.out.println();
-            }
-            return list;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    public Book add(Book t) {
         return null;
     }
 
