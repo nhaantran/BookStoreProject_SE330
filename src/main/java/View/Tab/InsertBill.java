@@ -87,7 +87,8 @@ public class InsertBill extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Phone");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField1.setText("Enter Phone");
 
         javax.swing.GroupLayout insertbookpane1Layout = new javax.swing.GroupLayout(insertbookpane1);
         insertbookpane1.setLayout(insertbookpane1Layout);

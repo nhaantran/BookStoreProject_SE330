@@ -45,27 +45,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         setclickColor(clickbook);
         //setForm(new BookScreen());
-        table.ScrollBarFix(jScrollPane2);
-        ArrayList<Book> std = new ArrayList();
-        
-        BookDao a = new BookDao();
-        std = a.findAll();
-        loadDatatoTable(std);
-        
-//        table.addRow(new Object[]{"Mike Bhand", "mikebhand@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018"});
-//        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018"});
+        setForm(new BookScreen());
     }
 
     
@@ -112,9 +92,6 @@ public class Home extends javax.swing.JFrame {
         lbllogout = new javax.swing.JLabel();
         searchBar1 = new View.Component.SearchBar();
         datapane = new View.Component.datapane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table();
-        insertBook1 = new View.Tab.InsertBook();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -535,46 +512,15 @@ public class Home extends javax.swing.JFrame {
 
         datapane.setBackground(new java.awt.Color(204, 204, 204));
 
-        jScrollPane2.setBorder(null);
-
-        table.setBackground(new java.awt.Color(255, 255, 255));
-        table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Name", "Description", "Supplier", "Author", "Publisher", "Edition", "Type", "BookCover", "ReleaseDate", "NumPages", "Price", "Amount", "Action"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(table);
-
         javax.swing.GroupLayout datapaneLayout = new javax.swing.GroupLayout(datapane);
         datapane.setLayout(datapaneLayout);
         datapaneLayout.setHorizontalGroup(
             datapaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(datapaneLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(datapaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(insertBook1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+            .addGap(0, 1016, Short.MAX_VALUE)
         );
         datapaneLayout.setVerticalGroup(
             datapaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, datapaneLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(insertBook1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 738, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout screenLayout = new javax.swing.GroupLayout(screen);
@@ -722,10 +668,10 @@ public class Home extends javax.swing.JFrame {
     private void loadDatatoTable(ArrayList<Book> list){
         try{
             for(Book s : list){
-                table.addRow(new Object[]{
-                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
-                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new BookDao(s)
-                });   
+//                table.addRow(new Object[]{
+//                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
+//                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new BookDao(s)
+//                });   
             }
         }catch(Exception e)
         {
@@ -833,7 +779,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel clickstatistic;
     private javax.swing.JPanel clicksupplier;
     private View.Component.datapane datapane;
-    private View.Tab.InsertBook insertBook1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -842,7 +787,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblUSERID;
     private javax.swing.JLabel lblUSERMAIL;
@@ -862,7 +806,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel screen;
     private View.Component.SearchBar searchBar1;
     private javax.swing.JPanel sidepane;
-    private View.Component.Table.Table table;
     private javax.swing.JLabel usericon;
     // End of variables declaration//GEN-END:variables
 }
