@@ -20,6 +20,15 @@ import java.util.ArrayList;
  */
 public class BookDao implements IDao<Book> {
 
+    private Book book;
+    public BookDao(){
+        this.book = null;
+    }
+    
+    public BookDao(Book book){
+        this.book = book;
+    }
+    
     private Book Create(ResultSet resultSet) throws SQLException {
         Book std = new Book();
         std.setID(String.valueOf(resultSet.getString("BookID")));
@@ -33,6 +42,7 @@ public class BookDao implements IDao<Book> {
         std.setReleaseDate(resultSet.getString("ReleaseDate"));
         std.setNumPages(resultSet.getInt("NumPages"));
         std.setPrice(resultSet.getDouble("Price"));
+        std.setPublisher(resultSet.getString("Publisher"));
         return std;
     }
 

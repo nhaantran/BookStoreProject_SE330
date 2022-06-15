@@ -31,17 +31,9 @@ public class InsertCustomer extends javax.swing.JPanel {
         insertbookpane1 = new javax.swing.JPanel();
         lblinsertname = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
-        lblinsertname1 = new javax.swing.JLabel();
-        txtemail = new javax.swing.JTextField();
-        lblinsertname2 = new javax.swing.JLabel();
-        txtdateofbirth = new javax.swing.JTextField();
-        lblinsertname12 = new javax.swing.JLabel();
-        txtgender = new javax.swing.JTextField();
         btnadd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtphone = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txttotal = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -67,51 +59,6 @@ public class InsertCustomer extends javax.swing.JPanel {
             }
         });
 
-        lblinsertname1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblinsertname1.setForeground(new java.awt.Color(0, 0, 0));
-        lblinsertname1.setText("Email");
-
-        txtemail.setForeground(new java.awt.Color(153, 153, 153));
-        txtemail.setText("Enter Email");
-        txtemail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtemailFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtemailFocusLost(evt);
-            }
-        });
-
-        lblinsertname2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblinsertname2.setForeground(new java.awt.Color(0, 0, 0));
-        lblinsertname2.setText("DateofBirth");
-
-        txtdateofbirth.setForeground(new java.awt.Color(153, 153, 153));
-        txtdateofbirth.setText("Enter DateofBirth");
-        txtdateofbirth.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtdateofbirthFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtdateofbirthFocusLost(evt);
-            }
-        });
-
-        lblinsertname12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblinsertname12.setForeground(new java.awt.Color(0, 0, 0));
-        lblinsertname12.setText("Gender");
-
-        txtgender.setForeground(new java.awt.Color(153, 153, 153));
-        txtgender.setText("Enter Gender");
-        txtgender.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtgenderFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtgenderFocusLost(evt);
-            }
-        });
-
         btnadd.setBackground(new java.awt.Color(0, 153, 255));
         btnadd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,21 +80,6 @@ public class InsertCustomer extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Total");
-
-        txttotal.setForeground(new java.awt.Color(153, 153, 153));
-        txttotal.setText("Enter Total");
-        txttotal.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txttotalFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txttotalFocusLost(evt);
-            }
-        });
-
         javax.swing.GroupLayout insertbookpane1Layout = new javax.swing.GroupLayout(insertbookpane1);
         insertbookpane1.setLayout(insertbookpane1Layout);
         insertbookpane1Layout.setHorizontalGroup(
@@ -156,26 +88,9 @@ public class InsertCustomer extends javax.swing.JPanel {
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(insertbookpane1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane1Layout.createSequentialGroup()
-                                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblinsertname, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblinsertname1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtemail)
-                                    .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane1Layout.createSequentialGroup()
-                                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblinsertname12)
-                                    .addComponent(lblinsertname2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(insertbookpane1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtgender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(insertbookpane1Layout.createSequentialGroup()
-                                        .addGap(94, 94, 94)
-                                        .addComponent(txtdateofbirth))))))
+                        .addComponent(lblinsertname, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(insertbookpane1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,12 +99,7 @@ public class InsertCustomer extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(insertbookpane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         insertbookpane1Layout.setVerticalGroup(
@@ -199,27 +109,11 @@ public class InsertCustomer extends javax.swing.JPanel {
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblinsertname)
                     .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblinsertname1)
-                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblinsertname2)
-                    .addComponent(txtdateofbirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblinsertname12)
-                    .addComponent(txtgender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(138, 138, 138)
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(btnadd))
         );
 
@@ -261,54 +155,6 @@ public class InsertCustomer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtnameFocusLost
 
-    private void txtemailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtemailFocusGained
-        // TODO add your handling code here:
-        if(txtemail.getText().equals("Enter Email")){
-            txtemail.setText("");
-            txtemail.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtemailFocusGained
-
-    private void txtemailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtemailFocusLost
-        // TODO add your handling code here:
-        if(txtemail.getText().equals("")){
-            txtemail.setText("Enter Email");
-            txtemail.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtemailFocusLost
-
-    private void txtdateofbirthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdateofbirthFocusGained
-        // TODO add your handling code here:
-        if(txtdateofbirth.getText().equals("Enter DateofBirth")){
-            txtdateofbirth.setText("");
-            txtdateofbirth.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtdateofbirthFocusGained
-
-    private void txtdateofbirthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdateofbirthFocusLost
-        // TODO add your handling code here:
-        if(txtdateofbirth.getText().equals("")){
-            txtdateofbirth.setText("Enter DateofBirth");
-            txtdateofbirth.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtdateofbirthFocusLost
-
-    private void txtgenderFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtgenderFocusGained
-        // TODO add your handling code here:
-        if(txtgender.getText().equals("Enter Gender")){
-            txtgender.setText("");
-            txtgender.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtgenderFocusGained
-
-    private void txtgenderFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtgenderFocusLost
-        // TODO add your handling code here:
-        if(txtgender.getText().equals("")){
-            txtgender.setText("Enter Gender");
-            txtgender.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtgenderFocusLost
-
     private void txtphoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtphoneFocusGained
         // TODO add your handling code here:
         if(txtphone.getText().equals("Enter Phone")){
@@ -325,37 +171,13 @@ public class InsertCustomer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtphoneFocusLost
 
-    private void txttotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txttotalFocusGained
-        // TODO add your handling code here:
-        if(txtgender.getText().equals("Enter Total")){
-            txtgender.setText("");
-            txtgender.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txttotalFocusGained
-
-    private void txttotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txttotalFocusLost
-        // TODO add your handling code here:
-        if(txtgender.getText().equals("")){
-            txtgender.setText("Enter Total");
-            txtgender.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txttotalFocusLost
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnadd;
     private javax.swing.JPanel insertbookpane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblinsertname;
-    private javax.swing.JLabel lblinsertname1;
-    private javax.swing.JLabel lblinsertname12;
-    private javax.swing.JLabel lblinsertname2;
-    private javax.swing.JTextField txtdateofbirth;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtgender;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtphone;
-    private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
 }

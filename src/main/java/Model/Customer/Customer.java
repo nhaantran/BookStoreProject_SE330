@@ -14,7 +14,8 @@ public class Customer extends Unit{
     private String Phone;
     private String RegisterDate;
     private double Total;
-
+    
+    
     public Customer() {
         super();
         this.Phone = "";

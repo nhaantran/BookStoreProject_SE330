@@ -22,7 +22,8 @@ public class Book extends Unit {
     private String ReleaseDate;
     private int NumPages;
     private double Price;
-
+    private int Amount;
+    
     public Book(){
         super();
         this.Description = "";
