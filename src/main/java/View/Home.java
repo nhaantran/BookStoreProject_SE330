@@ -4,31 +4,16 @@
  */
 package View;
 
-import Model.Book.Book;
-import Model.Book.BookDao;
 import View.Component.BillScreen;
 import View.Component.BookScreen;
 import View.Component.CustomerScreen;
 import View.Component.DiscountScreen;
 import View.Component.StatisticScreen;
-import View.Tab.InsertBill;
-import View.Tab.UpdateDiscount;
-import View.Tab.InsertBook;
-import View.Tab.InsertCustomer;
-import View.Tab.InsertDiscount;
-import View.Tab.UpdateBill;
-import View.Tab.UpdateCustomer;
-import View.Tab.UpdateBook;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -43,8 +28,8 @@ public class Home extends javax.swing.JFrame {
     @SuppressWarnings("empty-statement")
     public Home() {
         initComponents();
+        this.setLocationRelativeTo(null);
         setclickColor(clickbook);
-        //setForm(new BookScreen());
         setForm(new BookScreen());
     }
 
@@ -58,7 +43,7 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        screen = new javax.swing.JPanel();
+        mainscreen = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         menubook = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -95,10 +80,10 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1400, 800));
+        setPreferredSize(new java.awt.Dimension(1500, 800));
         setResizable(false);
 
-        screen.setBackground(new java.awt.Color(204, 204, 204));
+        mainscreen.setBackground(new java.awt.Color(204, 204, 204));
 
         sidepane.setBackground(new java.awt.Color(246, 248, 250));
         sidepane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -511,51 +496,40 @@ public class Home extends javax.swing.JFrame {
         searchBar1.setForeground(new java.awt.Color(204, 204, 204));
 
         datapane.setBackground(new java.awt.Color(204, 204, 204));
+        datapane.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout datapaneLayout = new javax.swing.GroupLayout(datapane);
-        datapane.setLayout(datapaneLayout);
-        datapaneLayout.setHorizontalGroup(
-            datapaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1016, Short.MAX_VALUE)
-        );
-        datapaneLayout.setVerticalGroup(
-            datapaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout screenLayout = new javax.swing.GroupLayout(screen);
-        screen.setLayout(screenLayout);
-        screenLayout.setHorizontalGroup(
-            screenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(screenLayout.createSequentialGroup()
+        javax.swing.GroupLayout mainscreenLayout = new javax.swing.GroupLayout(mainscreen);
+        mainscreen.setLayout(mainscreenLayout);
+        mainscreenLayout.setHorizontalGroup(
+            mainscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainscreenLayout.createSequentialGroup()
                 .addComponent(sidepane, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(screenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
-                    .addGroup(screenLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                    .addGroup(mainscreenLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(datapane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
-        screenLayout.setVerticalGroup(
-            screenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        mainscreenLayout.setVerticalGroup(
+            mainscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sidepane, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
-            .addGroup(screenLayout.createSequentialGroup()
+            .addGroup(mainscreenLayout.createSequentialGroup()
                 .addComponent(searchBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(datapane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(datapane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(screen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainscreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(screen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainscreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -665,19 +639,7 @@ public class Home extends javax.swing.JFrame {
 //        panel.setVisible(true);
 //    }
 //    
-    private void loadDatatoTable(ArrayList<Book> list){
-        try{
-            for(Book s : list){
-//                table.addRow(new Object[]{
-//                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
-//                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new BookDao(s)
-//                });   
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
+    
     
     private void setclickColor(JPanel panel){
         
@@ -798,12 +760,12 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel lblncc;
     private javax.swing.JLabel lblsach;
     private javax.swing.JLabel lblthongke;
+    private javax.swing.JPanel mainscreen;
     private javax.swing.JPanel menubill;
     private javax.swing.JPanel menubook;
     private javax.swing.JPanel menucustomer;
     private javax.swing.JPanel menudiscount;
     private javax.swing.JPanel menustatistic;
-    private javax.swing.JPanel screen;
     private View.Component.SearchBar searchBar1;
     private javax.swing.JPanel sidepane;
     private javax.swing.JLabel usericon;

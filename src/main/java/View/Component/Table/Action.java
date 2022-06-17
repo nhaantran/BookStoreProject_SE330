@@ -1,7 +1,9 @@
 
 package View.Component.Table;
 
+import View.Tab.UpdateBook;
 import Model.Book.BookDao;
+import View.Home;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -14,13 +16,21 @@ import java.awt.event.ActionListener;
 public class Action extends javax.swing.JPanel {
 
  
-    public Action(BookDao data) {
+    public Action(ModelAction data) {
         initComponents();
         setOpaque(false);
         btnedit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                System.out.println("Edit");
+                System.out.println(data.getClass());
+                
+                
+                Home b = new Home();
+                UpdateBook a = new UpdateBook(b);
+                
+                
+                a.setVisible(true);
+
             }
         });
         btndelete.addActionListener(new ActionListener() {
@@ -31,6 +41,8 @@ public class Action extends javax.swing.JPanel {
         });
     }
 
+    
+    
     @Override
     protected void paintComponent(Graphics grphcs) {
         super.paintComponent(grphcs);

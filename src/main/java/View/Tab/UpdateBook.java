@@ -1,22 +1,27 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package View.Tab;
 
+import Model.Book.Book;
+import Model.Book.BookDao;
 import java.awt.Color;
 
 /**
  *
  * @author nhaantran
  */
-public class UpdateBook extends javax.swing.JPanel {
+public class UpdateBook extends javax.swing.JDialog {
 
     /**
-     * Creates new form UpdateBook
+     * Creates new form test
      */
-    public UpdateBook() {
+    public UpdateBook(java.awt.Frame parent) {
+        super(parent);
         initComponents();
+        this.setTitle("UpdateBook");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,6 +33,7 @@ public class UpdateBook extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         updatebookpane1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         rdbtnname = new javax.swing.JRadioButton();
@@ -58,7 +64,10 @@ public class UpdateBook extends javax.swing.JPanel {
         txtdescription = new javax.swing.JTextArea();
         btnupdate = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setMinimumSize(new java.awt.Dimension(200, 400));
 
         updatebookpane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -363,6 +372,11 @@ public class UpdateBook extends javax.swing.JPanel {
         btnupdate.setForeground(new java.awt.Color(255, 255, 255));
         btnupdate.setText("Update Book");
         btnupdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout updatebookpane3Layout = new javax.swing.GroupLayout(updatebookpane3);
         updatebookpane3.setLayout(updatebookpane3Layout);
@@ -392,11 +406,11 @@ public class UpdateBook extends javax.swing.JPanel {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(updatebookpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
@@ -405,17 +419,85 @@ public class UpdateBook extends javax.swing.JPanel {
                 .addComponent(updatebookpane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(updatebookpane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updatebookpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updatebookpane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 885, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 358, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rdbtnnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnameActionPerformed
+        // TODO add your handling code here:
+        if(txtname.isEnabled()){
+            txtname.setEnabled(false);
+        } else{
+            txtname.setEnabled(true);
+        }
+    }//GEN-LAST:event_rdbtnnameActionPerformed
+
+    private void rdbtnnationalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnationalActionPerformed
+        // TODO add your handling code here:
+        if(txtnational.isEnabled()){
+            txtnational.setEnabled(false);
+        } else{
+            txtnational.setEnabled(true);
+        }
+    }//GEN-LAST:event_rdbtnnationalActionPerformed
+
+    private void rdbtnyearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnyearActionPerformed
+        // TODO add your handling code here:
+        if(txtyear.isEnabled()){
+            txtyear.setEnabled(false);
+        } else{
+            txtyear.setEnabled(true);
+        }
+    }//GEN-LAST:event_rdbtnyearActionPerformed
+
+    private void rdbtnnumpagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnumpagesActionPerformed
+        // TODO add your handling code here:
+        if(txtnumpages.isEnabled()){
+            txtnumpages.setEnabled(false);
+        } else{
+            txtnumpages.setEnabled(true);
+        }
+    }//GEN-LAST:event_rdbtnnumpagesActionPerformed
+
+    private void rdbtnpriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnpriceActionPerformed
+        // TODO add your handling code here:
+        if(txtprice.isEnabled()){
+            txtprice.setEnabled(false);
+        } else{
+            txtprice.setEnabled(true);
+        }
+    }//GEN-LAST:event_rdbtnpriceActionPerformed
 
     private void txtidFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtidFocusGained
         // TODO add your handling code here:
@@ -455,7 +537,6 @@ public class UpdateBook extends javax.swing.JPanel {
             txtnational.setText("");
             txtnational.setForeground(new Color(153, 153, 153));
         }
-
     }//GEN-LAST:event_txtnationalFocusGained
 
     private void txtnationalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnationalFocusLost
@@ -514,51 +595,6 @@ public class UpdateBook extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtpriceFocusLost
 
-    private void rdbtnnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnameActionPerformed
-        // TODO add your handling code here:
-        if(txtname.isEnabled()){
-            txtname.setEnabled(false);
-        } else{
-            txtname.setEnabled(true);
-        }
-    }//GEN-LAST:event_rdbtnnameActionPerformed
-
-    private void rdbtnnationalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnationalActionPerformed
-        // TODO add your handling code here:
-        if(txtnational.isEnabled()){
-            txtnational.setEnabled(false);
-        } else{
-            txtnational.setEnabled(true);
-        }
-    }//GEN-LAST:event_rdbtnnationalActionPerformed
-
-    private void rdbtnyearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnyearActionPerformed
-        // TODO add your handling code here:
-        if(txtyear.isEnabled()){
-            txtyear.setEnabled(false);
-        } else{
-            txtyear.setEnabled(true);
-        }
-    }//GEN-LAST:event_rdbtnyearActionPerformed
-
-    private void rdbtnnumpagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnumpagesActionPerformed
-        // TODO add your handling code here:
-        if(txtnumpages.isEnabled()){
-            txtnumpages.setEnabled(false);
-        } else{
-            txtnumpages.setEnabled(true);
-        }
-    }//GEN-LAST:event_rdbtnnumpagesActionPerformed
-
-    private void rdbtnpriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnpriceActionPerformed
-        // TODO add your handling code here:
-        if(txtprice.isEnabled()){
-            txtprice.setEnabled(false);
-        } else{
-            txtprice.setEnabled(true);
-        }
-    }//GEN-LAST:event_rdbtnpriceActionPerformed
-
     private void rdbtnpublisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnpublisherActionPerformed
         // TODO add your handling code here:
         if(cbbpublisher.isEnabled()){
@@ -613,6 +649,53 @@ public class UpdateBook extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_rdbtndescriptionActionPerformed
 
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UpdateBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UpdateBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UpdateBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UpdateBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                UpdateBook dialog = new UpdateBook(new javax.swing.JFrame());
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnupdate;
@@ -622,6 +705,7 @@ public class UpdateBook extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbbsupplier;
     private javax.swing.JComboBox<String> cbbtype;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton rdbtnauthor;
     private javax.swing.JRadioButton rdbtnbookcover;

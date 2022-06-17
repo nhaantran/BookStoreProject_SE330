@@ -6,10 +6,10 @@ package Model.Book;
 
 import Database.DatabaseConnector;
 import Database.IDao;
+import View.Component.Table.ModelAction;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -18,17 +18,18 @@ import java.util.ArrayList;
  *
  * @author nhaantran
  */
-public class BookDao implements IDao<Book> {
+public class BookDao extends ModelAction<Book>{
 
-    private Book book;
-    public BookDao(){
-        this.book = null;
+    public BookDao() {
+        super();
+    }
+    public BookDao(Book t) {
+        super(t);
     }
     
-    public BookDao(Book book){
-        this.book = book;
+    private void getbookID(){
+        
     }
-    
     private Book Create(ResultSet resultSet) throws SQLException {
         Book std = new Book();
         std.setID(String.valueOf(resultSet.getString("BookID")));
@@ -103,15 +104,15 @@ public class BookDao implements IDao<Book> {
         }
         return null;
     }
-
+    @Override
     public Book update(Book t) {
         return null;
     }
-
+@Override
     public boolean delete(Book t) {
         return false;
     }
-
+    @Override
     public void printbyID(Book t) {
 
     }

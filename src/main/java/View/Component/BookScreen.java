@@ -4,6 +4,11 @@
  */
 package View.Component;
 
+import Model.Book.Book;
+import Model.Book.BookDao;
+import View.Component.Table.ModelAction;
+import java.util.ArrayList;
+
 /**
  *
  * @author nhaantran
@@ -13,10 +18,35 @@ public class BookScreen extends javax.swing.JPanel {
     /**
      * Creates new form BookScreen
      */
+    
+    private BookDao bkd = new BookDao();
+    private ArrayList<Book> list = new ArrayList();
+    
     public BookScreen() {
         initComponents();
+        
+        list = bkd.findAll();
+        loadDatatoTable(list);
+        
+        table.ScrollBarFix(jScrollPane2);
     }
 
+    
+    private void loadDatatoTable(ArrayList<Book> list){
+        try{
+            for(Book s : list){
+                table.addRow(new Object[]{
+                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
+                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new BookDao(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,7 +57,7 @@ public class BookScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table();
+        table = new View.Component.Table.Table_Book();
         insertBook1 = new View.Tab.InsertBook();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -44,7 +74,7 @@ public class BookScreen extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -52,6 +82,14 @@ public class BookScreen extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
+            table.getColumnModel().getColumn(0).setPreferredWidth(40);
+            table.getColumnModel().getColumn(6).setResizable(false);
+            table.getColumnModel().getColumn(6).setPreferredWidth(60);
+        }
+
+        insertBook1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,6 +118,6 @@ public class BookScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private View.Tab.InsertBook insertBook1;
     private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table table;
+    private View.Component.Table.Table_Book table;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,7 +27,7 @@ public class CustomerScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table();
+        table = new View.Component.Table.Table_Book();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -64,8 +64,7 @@ public class CustomerScreen extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -73,6 +72,6 @@ public class CustomerScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table table;
+    private View.Component.Table.Table_Book table;
     // End of variables declaration//GEN-END:variables
 }

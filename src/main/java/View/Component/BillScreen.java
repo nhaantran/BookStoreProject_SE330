@@ -27,7 +27,7 @@ public class BillScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table();
+        table = new View.Component.Table.Table_Book();
         insertBill2 = new View.Tab.InsertBill();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -70,9 +70,9 @@ public class BillScreen extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(insertBill2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(insertBill2, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -81,6 +81,6 @@ public class BillScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private View.Tab.InsertBill insertBill2;
     private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table table;
+    private View.Component.Table.Table_Book table;
     // End of variables declaration//GEN-END:variables
 }

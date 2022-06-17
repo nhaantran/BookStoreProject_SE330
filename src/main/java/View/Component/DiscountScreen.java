@@ -4,6 +4,8 @@
  */
 package View.Component;
 
+import Model.Discount.Discount;
+
 /**
  *
  * @author nhaantran
@@ -13,9 +15,13 @@ public class DiscountScreen extends javax.swing.JPanel {
     /**
      * Creates new form DiscountScreen
      */
+    private Discount discount = new Discount();
+    
     public DiscountScreen() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,7 +33,7 @@ public class DiscountScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table();
+        table = new View.Component.Table.Table_Book();
         insertDiscount1 = new View.Tab.InsertDiscount();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -81,6 +87,6 @@ public class DiscountScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private View.Tab.InsertDiscount insertDiscount1;
     private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table table;
+    private View.Component.Table.Table_Book table;
     // End of variables declaration//GEN-END:variables
 }

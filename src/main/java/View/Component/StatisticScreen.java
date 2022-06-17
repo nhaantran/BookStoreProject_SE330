@@ -27,7 +27,7 @@ public class StatisticScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table();
+        table = new View.Component.Table.Table_Book();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -73,6 +73,6 @@ public class StatisticScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table table;
+    private View.Component.Table.Table_Book table;
     // End of variables declaration//GEN-END:variables
 }
