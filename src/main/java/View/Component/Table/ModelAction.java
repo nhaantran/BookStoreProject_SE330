@@ -6,48 +6,36 @@ package View.Component.Table;
 
 import Database.IDao;
 import Model.Model;
+import Model.Unit;
 import java.util.ArrayList;
 
 /**
  *
  * @author nhaantran
  */
-public  class ModelAction<T> implements IDao<T>{
-    private T t;
+public class ModelAction<T> implements IDao<T>{
+    private Model model;
     
-    public ModelAction() {
-        this.t = null;
+    public ModelAction(Model model){
+        this.model = model;
     }
-    public ModelAction(T t) {
-        this.t = t;
-        
+    public ModelAction(){
+        this.model = null;
     }
     
-    
-    
-    @Override
-    public ArrayList<T> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getID(){
+        return this.model.getID();
     }
 
     @Override
-    public T add(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public ArrayList<T> findAll() {return null;}
 
     @Override
-    public T update(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public T add(T t) {return null;}
 
     @Override
-    public boolean delete(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public T update(T t, String ID) {return null;}
 
     @Override
-    public void printbyID(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+    public boolean delete(T t) {return false;}
 }

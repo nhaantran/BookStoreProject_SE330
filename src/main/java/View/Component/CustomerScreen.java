@@ -4,6 +4,11 @@
  */
 package View.Component;
 
+import Model.Customer.Customer;
+import Model.Customer.CustomerDao;
+import View.Component.Table.ModelAction;
+import java.util.ArrayList;
+
 /**
  *
  * @author nhaantran
@@ -13,10 +18,29 @@ public class CustomerScreen extends javax.swing.JPanel {
     /**
      * Creates new form CustomerScreen
      */
+    private CustomerDao customer = new CustomerDao();
+    
     public CustomerScreen() {
         initComponents();
+        loadDatatoTable(customer.findAll());
+        table.ScrollBarFix(jScrollPane1);
     }
 
+    
+     private void loadDatatoTable(ArrayList<Customer> list){
+        try{
+//            
+            for(Customer s : list){
+                table.addRow(new Object[]{s.getID(),s.getName(), s.getPhone(), 
+                    s.getRegisterDate(), s.getTotal(),new ModelAction(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,12 +50,10 @@ public class CustomerScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table_Book();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new View.Component.Table.Table_Customer();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jScrollPane2.setBorder(null);
 
         table.setBackground(new java.awt.Color(255, 255, 255));
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -39,7 +61,7 @@ public class CustomerScreen extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Name", "Phone", "RegisterDate", "Total", "Action"
+                "ID", "Name", "Phone", "RegisterDate", "Total", "Aciton"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -50,28 +72,29 @@ public class CustomerScreen extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(table);
+        jScrollPane1.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table_Book table;
+    private javax.swing.JScrollPane jScrollPane1;
+    private View.Component.Table.Table_Customer table;
     // End of variables declaration//GEN-END:variables
 }

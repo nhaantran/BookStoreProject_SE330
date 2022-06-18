@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 
 public interface IDao<T> {
+    
     ArrayList<T> findAll();
     T add(T t);
-    T update(T t);
+    T update(T t, String ID);
     boolean delete(T t);
-    void printbyID(T t);
 }

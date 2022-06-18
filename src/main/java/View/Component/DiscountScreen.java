@@ -4,7 +4,11 @@
  */
 package View.Component;
 
+import Model.Customer.Customer;
 import Model.Discount.Discount;
+import Model.Discount.DiscountDao;
+import View.Component.Table.ModelAction;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,13 +19,28 @@ public class DiscountScreen extends javax.swing.JPanel {
     /**
      * Creates new form DiscountScreen
      */
-    private Discount discount = new Discount();
+    private DiscountDao discount = new DiscountDao();
     
     public DiscountScreen() {
         initComponents();
+        
+        loadDatatoTable(discount.findAll());
+        table.ScrollBarFix(jScrollPane1);
     }
     
-    
+    private void loadDatatoTable(ArrayList<Discount> list){
+        try{
+//            
+            for(Discount s : list){
+                table.addRow(new Object[]{s.getID(),s.getName(),
+                    s.getValue(), new ModelAction(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,13 +51,11 @@ public class DiscountScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table = new View.Component.Table.Table_Book();
-        insertDiscount1 = new View.Tab.InsertDiscount();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new View.Component.Table.Table_Discount();
+        insertDiscount2 = new View.Tab.InsertDiscount();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jScrollPane2.setBorder(null);
 
         table.setBackground(new java.awt.Color(255, 255, 255));
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -50,14 +67,16 @@ public class DiscountScreen extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                true, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(table);
+        jScrollPane1.setViewportView(table);
+
+        insertDiscount2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,27 +85,26 @@ public class DiscountScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(insertDiscount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(insertDiscount2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 6, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(insertDiscount1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                .addComponent(insertDiscount2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private View.Tab.InsertDiscount insertDiscount1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private View.Component.Table.Table_Book table;
+    private View.Tab.InsertDiscount insertDiscount2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private View.Component.Table.Table_Discount table;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,6 +1,7 @@
 
 package View.Component.Table;
 
+import Model.Book.Book;
 import View.Tab.UpdateBook;
 import Model.Book.BookDao;
 import View.Home;
@@ -19,16 +20,12 @@ public class Action extends javax.swing.JPanel {
     public Action(ModelAction data) {
         initComponents();
         setOpaque(false);
+       
         btnedit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                System.out.println(data.getClass());
-                
-                
                 Home b = new Home();
                 UpdateBook a = new UpdateBook(b);
-                
-                
                 a.setVisible(true);
 
             }

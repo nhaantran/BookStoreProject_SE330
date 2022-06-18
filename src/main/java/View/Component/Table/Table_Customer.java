@@ -30,7 +30,7 @@ public class Table_Customer extends JTable {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
                 TableHeader header = new TableHeader(o + "");
-                if (i1 == 14 ) {
+                if (i1 == 6 ) {
                     header.setHorizontalAlignment(JLabel.CENTER);
                 }
                 return header;
@@ -39,8 +39,7 @@ public class Table_Customer extends JTable {
         setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean focus, int i, int i1) {
-                if (o instanceof ModelAction) {
-                    ModelAction data = (ModelAction)o;
+                if (o instanceof ModelAction data) {
                     Action cell = new Action(data);
                     if (selected) {
                         cell.setBackground(new Color(239, 244, 255));
@@ -69,7 +68,7 @@ public class Table_Customer extends JTable {
     
     @Override
     public TableCellEditor getCellEditor(int row, int col) {
-        if (col == 13) {
+        if (col == 5) {
             return new TableCellAction();
         } else {
             return super.getCellEditor(row, col);

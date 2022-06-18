@@ -41,8 +41,7 @@ public class Table_Book extends JTable {
         setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean focus, int i, int i1) {
-                if (o instanceof BookDao){
-                    BookDao book = (BookDao) o;
+                if (o instanceof ModelAction book){
                     Action cell = new Action(book);
                     if (selected) {
                         cell.setBackground(new Color(239, 244, 255));

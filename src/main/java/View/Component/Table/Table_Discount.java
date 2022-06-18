@@ -30,7 +30,7 @@ public class Table_Discount extends JTable {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
                 TableHeader header = new TableHeader(o + "");
-                if (i1 == 14 ) {
+                if (i1 == 4 ) {
                     header.setHorizontalAlignment(JLabel.CENTER);
                 }
                 return header;
@@ -69,7 +69,7 @@ public class Table_Discount extends JTable {
     
     @Override
     public TableCellEditor getCellEditor(int row, int col) {
-        if (col == 13) {
+        if (col == 3) {
             return new TableCellAction();
         } else {
             return super.getCellEditor(row, col);
