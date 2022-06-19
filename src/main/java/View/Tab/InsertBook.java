@@ -336,8 +336,18 @@ public class InsertBook extends javax.swing.JPanel {
         lblinsertname3.setText("Description");
 
         txtdescription.setColumns(20);
+        txtdescription.setForeground(new java.awt.Color(153, 153, 153));
         txtdescription.setLineWrap(true);
         txtdescription.setRows(5);
+        txtdescription.setText("Enter Description");
+        txtdescription.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtdescriptionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtdescriptionFocusLost(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtdescription);
 
         javax.swing.GroupLayout insertbookpane3Layout = new javax.swing.GroupLayout(insertbookpane3);
@@ -559,6 +569,7 @@ public class InsertBook extends javax.swing.JPanel {
     
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
+        
         book.setName(txtname.getText());
         book.setReleaseDate(txtreleasedate.getText());
         book.setDescription(txtdescription.getText());
@@ -572,6 +583,22 @@ public class InsertBook extends javax.swing.JPanel {
         book.setBookCover(txtbookcover.getText());
         std.add(book);
     }//GEN-LAST:event_btnaddActionPerformed
+
+    private void txtdescriptionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdescriptionFocusGained
+        // TODO add your handling code here:
+        if(txtdescription.getText().equals("Enter Description")){
+            txtdescription.setText("");
+            txtdescription.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtdescriptionFocusGained
+
+    private void txtdescriptionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdescriptionFocusLost
+        // TODO add your handling code here:
+        if(txtdescription.getText().equals("")){
+            txtdescription.setText("Enter Description");
+            txtdescription.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtdescriptionFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

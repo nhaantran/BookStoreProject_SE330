@@ -33,7 +33,7 @@ public class BookScreen extends javax.swing.JPanel {
             for(Book s : list){
                 table.addRow(new Object[]{
                     s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
-                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new ModelAction(s)
+                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new BookDao(s)
                 });   
             }
         }catch(Exception e)

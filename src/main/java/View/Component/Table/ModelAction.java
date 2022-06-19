@@ -4,16 +4,13 @@
  */
 package View.Component.Table;
 
-import Database.IDao;
 import Model.Model;
-import Model.Unit;
-import java.util.ArrayList;
 
 /**
  *
  * @author nhaantran
  */
-public class ModelAction<T> implements IDao<T>{
+public class ModelAction<T> {
     private Model model;
     
     public ModelAction(Model model){
@@ -26,16 +23,4 @@ public class ModelAction<T> implements IDao<T>{
     public String getID(){
         return this.model.getID();
     }
-
-    @Override
-    public ArrayList<T> findAll() {return null;}
-
-    @Override
-    public T add(T t) {return null;}
-
-    @Override
-    public T update(T t, String ID) {return null;}
-
-    @Override
-    public boolean delete(T t) {return false;}
 }

@@ -6,6 +6,7 @@ package Model.Discount;
 
 import Model.Customer.*;
 import Database.DatabaseConnector;
+import Database.IDao;
 import Model.Book.Book;
 import View.Component.Table.ModelAction;
 import java.sql.Connection;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  *
  * @author nhaantran
  */
-public class DiscountDao extends ModelAction<Discount>{
+public class DiscountDao extends ModelAction<Discount> implements IDao<Discount>{
 
     public DiscountDao() {
         super();

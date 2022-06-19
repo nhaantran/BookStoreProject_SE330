@@ -1,13 +1,7 @@
 
-package View.Component.Table;
-
-import View.Tab.UpdateBook;
-import Model.Book.BookDao;
-import Model.Customer.CustomerDao;
-import Model.Discount.DiscountDao;
-import View.Home;
-import View.Tab.UpdateCustomer;
-import View.Tab.UpdateDiscount;
+package View.Component.Table.Shopping;
+import View.Component.Table.ModelAction;
+import View.Tab.Shopping;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -17,37 +11,30 @@ import java.awt.event.ActionListener;
  *
  * @author nhaantran
  */
-public class Action extends javax.swing.JPanel {
+public class Action_Shopping extends javax.swing.JPanel {
 
-    private BookDao bkd = new BookDao();
-    private CustomerDao ctmd = new CustomerDao();
-    private DiscountDao dcd = new DiscountDao();
-    public Action(ModelAction data) {
+ 
+    Shopping screen = new Shopping();
+    public Action_Shopping(ModelAction data) {
         initComponents();
         setOpaque(false);
-       
+        screen.setTextlblamount("0");
         btnedit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Home screen = new Home();
-                
-                System.out.println(data.getClass().toString());
-                if(data.getClass() == bkd.getClass()){
-                    UpdateBook udb = new UpdateBook(screen);
-                    udb.setVisible(true);
-                }if(data.getClass() == dcd.getClass()){
-                    UpdateDiscount udd = new UpdateDiscount(screen);
-                    udd.setVisible(true);
-                }if(data.getClass() == ctmd.getClass()){
-                    UpdateCustomer udd = new UpdateCustomer(screen);
-                    udd.setVisible(true);
+                int current_ammount = Integer.valueOf(screen.getTextlblamount());
+                if(current_ammount > 0){
+                    screen.setTextlblamount(String.valueOf(1+current_ammount));
                 }
             }
         });
         btndelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                System.out.println("Delete");
+                int current_ammount = Integer.valueOf(screen.getTextlblamount());
+                if(current_ammount > 0){
+                    screen.setTextlblamount(String.valueOf(current_ammount-1));
+                }
             }
         });
     }
@@ -89,9 +76,9 @@ public class Action extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnedit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btndelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

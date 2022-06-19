@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package View.Tab;
 
@@ -10,13 +10,16 @@ import java.awt.Color;
  *
  * @author nhaantran
  */
-public class UpdateDiscount extends javax.swing.JPanel {
+public class UpdateDiscount extends javax.swing.JDialog {
 
     /**
-     * Creates new form UpdateBook
+     * Creates new form UpdateDiscountt
      */
-    public UpdateDiscount() {
+    public UpdateDiscount(java.awt.Frame parent) {
+        super(parent);
         initComponents();
+        this.setTitle("Update Discount");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,7 +40,7 @@ public class UpdateDiscount extends javax.swing.JPanel {
         txtvalue = new javax.swing.JTextField();
         btnupdate = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         updatebookpane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -112,7 +115,7 @@ public class UpdateDiscount extends javax.swing.JPanel {
                     .addComponent(rdbtnvalue)
                     .addComponent(rdbtnname)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -122,7 +125,7 @@ public class UpdateDiscount extends javax.swing.JPanel {
             .addGroup(updatebookpane1Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         updatebookpane1Layout.setVerticalGroup(
             updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,26 +144,39 @@ public class UpdateDiscount extends javax.swing.JPanel {
                     .addComponent(txtvalue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnupdate)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(updatebookpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(updatebookpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(updatebookpane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rdbtnnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnameActionPerformed
+        // TODO add your handling code here:
+        if(txtname.isEnabled())
+        txtname.setEnabled(false);
+        else txtname.setEnabled(true);
+
+    }//GEN-LAST:event_rdbtnnameActionPerformed
+
+    private void rdbtnvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnvalueActionPerformed
+        // TODO add your handling code here:
+        if(txtvalue.isEnabled())
+        txtvalue.setEnabled(false);
+        else txtvalue.setEnabled(true);
+    }//GEN-LAST:event_rdbtnvalueActionPerformed
 
     private void txtidFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtidFocusGained
         // TODO add your handling code here:
@@ -200,7 +216,6 @@ public class UpdateDiscount extends javax.swing.JPanel {
             txtvalue.setText("");
             txtvalue.setForeground(new Color(153, 153, 153));
         }
-
     }//GEN-LAST:event_txtvalueFocusGained
 
     private void txtvalueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtvalueFocusLost
@@ -211,21 +226,48 @@ public class UpdateDiscount extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtvalueFocusLost
 
-    private void rdbtnnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnameActionPerformed
-        // TODO add your handling code here:
-        if(txtname.isEnabled())
-            txtname.setEnabled(false);
-        else txtname.setEnabled(true);
-        
-    }//GEN-LAST:event_rdbtnnameActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UpdateDiscount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UpdateDiscount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UpdateDiscount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UpdateDiscount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
 
-    private void rdbtnvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnvalueActionPerformed
-        // TODO add your handling code here:
-        if(txtvalue.isEnabled())
-            txtvalue.setEnabled(false);
-        else txtvalue.setEnabled(true);
-    }//GEN-LAST:event_rdbtnvalueActionPerformed
-
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                UpdateDiscount dialog = new UpdateDiscount(new javax.swing.JFrame());
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnupdate;

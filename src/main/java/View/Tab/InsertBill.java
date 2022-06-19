@@ -4,6 +4,7 @@
  */
 package View.Tab;
 
+import View.Home;
 import java.awt.Color;
 
 /**
@@ -37,6 +38,7 @@ public class InsertBill extends javax.swing.JPanel {
         btnadd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -80,7 +82,7 @@ public class InsertBill extends javax.swing.JPanel {
         btnadd.setBackground(new java.awt.Color(0, 153, 255));
         btnadd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
-        btnadd.setText("Add Discount");
+        btnadd.setText("Add Bill");
         btnadd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -90,27 +92,39 @@ public class InsertBill extends javax.swing.JPanel {
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("Enter Phone");
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Shopping");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout insertbookpane1Layout = new javax.swing.GroupLayout(insertbookpane1);
         insertbookpane1.setLayout(insertbookpane1Layout);
         insertbookpane1Layout.setHorizontalGroup(
             insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(insertbookpane1Layout.createSequentialGroup()
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(insertbookpane1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 135, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblvalue)
                             .addComponent(lblinsertname)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField1)
                             .addComponent(txtvalue)
-                            .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))))
+                            .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
+                    .addGroup(insertbookpane1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnadd, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         insertbookpane1Layout.setVerticalGroup(
@@ -128,7 +142,9 @@ public class InsertBill extends javax.swing.JPanel {
                 .addGroup(insertbookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(btnadd))
         );
 
@@ -186,10 +202,18 @@ public class InsertBill extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtvalueFocusLost
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Home screen = new Home();
+        Shopping dialog = new Shopping(screen);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnadd;
     private javax.swing.JPanel insertbookpane1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblinsertname;

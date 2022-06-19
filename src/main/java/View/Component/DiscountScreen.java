@@ -33,7 +33,7 @@ public class DiscountScreen extends javax.swing.JPanel {
 //            
             for(Discount s : list){
                 table.addRow(new Object[]{s.getID(),s.getName(),
-                    s.getValue(), new ModelAction(s)
+                    s.getValue(), new DiscountDao(s)
                 });   
             }
         }catch(Exception e)

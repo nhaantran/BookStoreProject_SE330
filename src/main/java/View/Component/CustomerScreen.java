@@ -6,7 +6,6 @@ package View.Component;
 
 import Model.Customer.Customer;
 import Model.Customer.CustomerDao;
-import View.Component.Table.ModelAction;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +31,7 @@ public class CustomerScreen extends javax.swing.JPanel {
 //            
             for(Customer s : list){
                 table.addRow(new Object[]{s.getID(),s.getName(), s.getPhone(), 
-                    s.getRegisterDate(), s.getTotal(),new ModelAction(s)
+                    s.getRegisterDate(), s.getTotal(),new CustomerDao(s)
                 });   
             }
         }catch(Exception e)

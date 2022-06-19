@@ -5,7 +5,7 @@
 package Model.Customer;
 
 import Database.DatabaseConnector;
-import Model.Book.Book;
+import Database.IDao;
 import View.Component.Table.ModelAction;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author nhaantran
  */
-public class CustomerDao extends ModelAction<Customer>{
+public class CustomerDao extends ModelAction<Customer> implements IDao<Customer>{
 
     public CustomerDao() {
         super();
