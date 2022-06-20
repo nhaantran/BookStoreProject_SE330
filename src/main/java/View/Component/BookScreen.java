@@ -4,11 +4,7 @@
  */
 package View.Component;
 
-import Model.Book.Book;
 import Model.Book.BookDao;
-import View.Component.Table.ModelAction;
-import java.util.ArrayList;
-
 /**
  *
  * @author nhaantran
@@ -23,23 +19,8 @@ public class BookScreen extends javax.swing.JPanel {
     
     public BookScreen() {
         initComponents();
-        loadDatatoTable(book.findAll());
+        table.loadDatatoTable(book.findAll());
         table.ScrollBarFix(jScrollPane2);
-    }
-
-    
-    private void loadDatatoTable(ArrayList<Book> list){
-        try{
-            for(Book s : list){
-                table.addRow(new Object[]{
-                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
-                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new BookDao(s)
-                });   
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
     }
     
     

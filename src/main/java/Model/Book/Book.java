@@ -12,7 +12,6 @@ import Model.Unit;
 
 public class Book extends Unit {
     private String Description;
-    private String National;
     private String Publisher;
     private String Supplier;    
     private String BookCover;
@@ -27,7 +26,6 @@ public class Book extends Unit {
     public Book(){
         super();
         this.Description = "";
-        this.National = "";
         this.Publisher = "";
         this.Supplier = "";
         this.BookCover = "";
@@ -37,12 +35,12 @@ public class Book extends Unit {
         this.ReleaseDate = "";
         this.NumPages = 0;
         this.Price = 0.0;
+        this.Amount = 0;
     }
     
-    public Book(String Description, String National, String Publisher, String Supplier, String BookCover, String Author, String Type, float Edition, String YearofPublish, int NumPages, double Price, String Name,String ID) {
+    public Book(String Description, String Publisher, String Supplier, String BookCover, String Author, String Type, float Edition, String YearofPublish, int NumPages, double Price, String Name,String ID, int Amount) {
         super(Name,ID);
         this.Description = Description;
-        this.National = National;
         this.Publisher = Publisher;
         this.Supplier = Supplier;
         this.BookCover = BookCover;
@@ -52,6 +50,7 @@ public class Book extends Unit {
         this.ReleaseDate = YearofPublish;
         this.NumPages = NumPages;
         this.Price = Price;
+        this.Amount = Amount;
     }
 
     public float getEdition() {
@@ -69,14 +68,6 @@ public class Book extends Unit {
 
     public void setDescription(String Description) {
         this.Description = Description;
-    }
-
-    public String getNational() {
-        return National;
-    }
-
-    public void setNational(String National) {
-        this.National = National;
     }
 
     public String getPublisher() {
@@ -142,6 +133,20 @@ public class Book extends Unit {
     public void setPrice(double Price) {
         this.Price = Price;
     }
+
+    public int getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(int Amount) {
+        this.Amount = Amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" + "Description=" + Description + ", Publisher=" + Publisher + ", Supplier=" + Supplier + ", BookCover=" + BookCover + ", Author=" + Author + ", Type=" + Type + ", Edition=" + Edition + ", ReleaseDate=" + ReleaseDate + ", NumPages=" + NumPages + ", Price=" + Price + ", Amount=" + Amount + '}';
+    }
+    
     
     
     

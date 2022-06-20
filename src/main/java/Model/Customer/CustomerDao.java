@@ -44,7 +44,7 @@ public class CustomerDao extends ModelAction<Customer> implements IDao<Customer>
      * @return 
      */
     @Override
-    public Customer add(Customer t) {
+    public boolean add(Customer t) {
         String sql = "INSERT INTO Customer ("
                 + "Name, Phone, RegisterDate, Total) "
                 + "VALUES(?,?,?,?) ";
@@ -57,13 +57,13 @@ public class CustomerDao extends ModelAction<Customer> implements IDao<Customer>
             try ( ResultSet resultSet = pstmt.executeQuery()) {
                 if (resultSet.next()) {
                     Customer std = Create(resultSet);
-                    return std;
+//                    return std;
                 }else System.out.print("error!");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override
@@ -90,28 +90,36 @@ public class CustomerDao extends ModelAction<Customer> implements IDao<Customer>
         return null;
     }
     @Override
-    public Customer update(Customer t, String ID) {
-        String sql = "Update Students Set "
-                + "department = ? "
-                + "where student_id = " + ID;
-//        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
-//                ResultSet resultSet = pstmt.executeQuery()) {
-//            pstmt.setString(1, t.getDepartment());
-//            pstmt.setString(2, t.getStudent_id());
-//            System.out.println("Update student successfull!");
-//            
-//            Students std = Create(resultSet);
-//            return std;
-//            
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-        return null;
+    public boolean update(Customer t) {
+        String sql = "Update Customer Set "
+                + "Name = ?, Phone = ? "
+                + "where CustomerID = ?";
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setString(1, t.getName());
+            pstmt.setString(2, t.getPhone());
+            pstmt.setInt(3, Integer.valueOf(t.getID()));
+            
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean delete(Customer t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "Delete from Customer "
+                + "where CustomerID = ?";
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setInt(1, Integer.valueOf(t.getID()));
+            
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
     
 

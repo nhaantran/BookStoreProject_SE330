@@ -1,9 +1,12 @@
 
 package View.Component.Table;
 
-import View.Tab.UpdateBook;
+import Model.Book.Book;
 import Model.Book.BookDao;
+import View.Tab.UpdateBook;
+import Model.Customer.Customer;
 import Model.Customer.CustomerDao;
+import Model.Discount.Discount;
 import Model.Discount.DiscountDao;
 import View.Home;
 import View.Tab.UpdateCustomer;
@@ -19,27 +22,36 @@ import java.awt.event.ActionListener;
  */
 public class Action extends javax.swing.JPanel {
 
+    private Book book = new Book();
+    private Customer customer = new Customer();
+    private Discount discount = new Discount();
+    
     private BookDao bkd = new BookDao();
     private CustomerDao ctmd = new CustomerDao();
     private DiscountDao dcd = new DiscountDao();
     public Action(ModelAction data) {
         initComponents();
         setOpaque(false);
-       
+        Home screen = new Home();
         btnedit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Home screen = new Home();
-                
-                System.out.println(data.getClass().toString());
-                if(data.getClass() == bkd.getClass()){
-                    UpdateBook udb = new UpdateBook(screen);
+                if(data.getmodel().getClass() == book.getClass()){
+                    book = (Book) data.getmodel();
+                    UpdateBook udb = new UpdateBook(screen,book);
                     udb.setVisible(true);
-                }if(data.getClass() == dcd.getClass()){
-                    UpdateDiscount udd = new UpdateDiscount(screen);
+                    
+                    
+                    
+                }if(data.getmodel().getClass() == discount.getClass()){
+                    discount = (Discount) data.getmodel();
+                    UpdateDiscount udd = new UpdateDiscount(screen,discount);
                     udd.setVisible(true);
-                }if(data.getClass() == ctmd.getClass()){
-                    UpdateCustomer udd = new UpdateCustomer(screen);
+                    
+                    
+                }if(data.getmodel().getClass() == customer.getClass()){
+                    customer = (Customer) data.getmodel();
+                    UpdateCustomer udd = new UpdateCustomer(screen,customer);
                     udd.setVisible(true);
                 }
             }
@@ -47,7 +59,16 @@ public class Action extends javax.swing.JPanel {
         btndelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                System.out.println("Delete");
+                if(data.getmodel().getClass() == book.getClass()){
+                    book = (Book) data.getmodel();
+                    bkd.delete(book);
+                }if(data.getmodel().getClass() == discount.getClass()){
+                    discount = (Discount) data.getmodel();
+                    dcd.delete(discount);
+                }if(data.getmodel().getClass() == customer.getClass()){
+                    customer = (Customer) data.getmodel();
+                    ctmd.delete(customer);
+                }
             }
         });
     }

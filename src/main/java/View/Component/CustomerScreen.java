@@ -21,24 +21,12 @@ public class CustomerScreen extends javax.swing.JPanel {
     
     public CustomerScreen() {
         initComponents();
-        loadDatatoTable(customer.findAll());
+        table.loadDatatoTable(customer.findAll());
         table.ScrollBarFix(jScrollPane1);
     }
 
     
-     private void loadDatatoTable(ArrayList<Customer> list){
-        try{
-//            
-            for(Customer s : list){
-                table.addRow(new Object[]{s.getID(),s.getName(), s.getPhone(), 
-                    s.getRegisterDate(), s.getTotal(),new CustomerDao(s)
-                });   
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

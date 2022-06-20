@@ -21,6 +21,8 @@ public class Forgetpassword extends javax.swing.JFrame {
      */
     public Forgetpassword() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**

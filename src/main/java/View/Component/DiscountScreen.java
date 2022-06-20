@@ -24,23 +24,12 @@ public class DiscountScreen extends javax.swing.JPanel {
     public DiscountScreen() {
         initComponents();
         
-        loadDatatoTable(discount.findAll());
+        table.loadDatatoTable(discount.findAll());
         table.ScrollBarFix(jScrollPane1);
+        
     }
     
-    private void loadDatatoTable(ArrayList<Discount> list){
-        try{
-//            
-            for(Discount s : list){
-                table.addRow(new Object[]{s.getID(),s.getName(),
-                    s.getValue(), new DiscountDao(s)
-                });   
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

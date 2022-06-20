@@ -4,6 +4,9 @@
  */
 package View.Tab;
 
+import Model.Discount.Discount;
+import Model.Discount.DiscountDao;
+import View.Component.Table.Table_Discount;
 import java.awt.Color;
 
 /**
@@ -174,8 +177,22 @@ public class InsertDiscount extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtvalueFocusLost
 
+    private Discount discount = new Discount();
+    private DiscountDao dcd = new DiscountDao();
+    private Table_Discount table = new Table_Discount();
+    
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
+        try{
+            discount.setName(txtname.getText());
+            discount.setValue(Double.valueOf(txtvalue.getText()));
+            
+            dcd.add(discount);
+            
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        table.loadDatatoTable(dcd.findAll());
     }//GEN-LAST:event_btnaddActionPerformed
 
 

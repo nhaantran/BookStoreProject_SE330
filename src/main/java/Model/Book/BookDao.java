@@ -51,10 +51,10 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
      * @return 
      */
     @Override
-    public Book add(Book t) {
+    public boolean add(Book t) {
         String sql = "INSERT INTO Book ("
-                + "Name, Description, Author, Supplier,Edition,Type,BookCover, ReleaseDate, NumPages, Price) "
-                + "VALUES(?,?,?,?,?,?,?,?,?,?) ";
+                + "Name, Description, Author, Supplier,Edition,Type,BookCover, ReleaseDate, NumPages, Price, Publisher) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?) ";
 
         try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql)) {
             pstmt.setString(1, t.getName());
@@ -67,16 +67,12 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
             pstmt.setString(8, t.getReleaseDate());
             pstmt.setInt(9, t.getNumPages());
             pstmt.setDouble(10, t.getPrice());
-            try ( ResultSet resultSet = pstmt.executeQuery()) {
-                if (resultSet.next()) {
-                    Book std = Create(resultSet);
-                    return std;
-                }else System.out.print("error!");
-            }
+            pstmt.setString(11, t.getPublisher());
+            return pstmt.executeUpdate()>0;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override
@@ -102,29 +98,49 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
         }
         return null;
     }
+    
     @Override
-    public Book update(Book t, String ID) {
-        String sql = "Update Students Set "
-                + "department = ? "
-                + "where student_id = " + ID;
-//        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
-//                ResultSet resultSet = pstmt.executeQuery()) {
-//            pstmt.setString(1, t.getDepartment());
-//            pstmt.setString(2, t.getStudent_id());
-//            System.out.println("Update student successfull!");
-//            
-//            Students std = Create(resultSet);
-//            return std;
-//            
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-        return null;
+    public boolean update(Book t) {
+        System.out.println("Update: " + Integer.valueOf(t.getID()));
+        System.out.println("Book info: "+t.toString());
+        String sql = "Update Book Set "
+                + "Name = ?, Description = ?, Author = ?, Supplier = ?"
+                + ", Edition = ?, Type = ?, BookCover = ?, ReleaseDate = ?"
+                + ", NumPages = ?, Price = ?, Publisher = ?"
+                + "where BookID = " +  Integer.valueOf(t.getID());
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setString(1, t.getName());
+            pstmt.setString(2, t.getDescription());
+            pstmt.setString(3, t.getAuthor());
+            pstmt.setString(4, t.getSupplier());
+            pstmt.setFloat(5, t.getEdition());
+            pstmt.setString(6, t.getType());
+            pstmt.setString(7, t.getBookCover());
+            pstmt.setString(8, t.getReleaseDate());
+            pstmt.setInt(9, t.getNumPages());
+            pstmt.setDouble(10, t.getPrice());
+            pstmt.setString(11, t.getPublisher());
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean delete(Book t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "Delete from Book "
+                + "where BookID = ?";
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setInt(1, Integer.valueOf(t.getID()));
+            
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
     
 

@@ -44,7 +44,7 @@ public class DiscountDao extends ModelAction<Discount> implements IDao<Discount>
      * @return 
      */
     @Override
-    public Discount add(Discount t) {
+    public boolean add(Discount t) {
         String sql = "INSERT INTO Discount ("
                 + "Name, Value) "
                 + "VALUES(?,?) ";
@@ -52,16 +52,11 @@ public class DiscountDao extends ModelAction<Discount> implements IDao<Discount>
         try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql)) {
             pstmt.setString(1, t.getName());
             pstmt.setDouble(2, t.getValue());
-            try ( ResultSet resultSet = pstmt.executeQuery()) {
-                if (resultSet.next()) {
-                    Discount std = Create(resultSet);
-                    return std;
-                }else System.out.print("error!");
-            }
+            return pstmt.executeUpdate()>0;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override
@@ -88,28 +83,36 @@ public class DiscountDao extends ModelAction<Discount> implements IDao<Discount>
         return null;
     }
     @Override
-    public Discount update(Discount t, String ID) {
-        String sql = "Update Students Set "
-                + "department = ? "
-                + "where student_id = " + ID;
-//        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
-//                ResultSet resultSet = pstmt.executeQuery()) {
-//            pstmt.setString(1, t.getDepartment());
-//            pstmt.setString(2, t.getStudent_id());
-//            System.out.println("Update student successfull!");
-//            
-//            Students std = Create(resultSet);
-//            return std;
-//            
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-        return null;
+    public boolean update(Discount t) {
+        String sql = "Update Discount Set "
+                + "Name = ?, Value = ? "
+                + "where DiscountID = ?";
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setString(1, t.getName());
+            pstmt.setDouble(2, t.getValue());
+            pstmt.setInt(3, Integer.valueOf(t.getID()));
+            
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean delete(Discount t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "Delete from Discount "
+                + "where DiscountID = ?";
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setInt(1, Integer.valueOf(t.getID()));
+            
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
     
 

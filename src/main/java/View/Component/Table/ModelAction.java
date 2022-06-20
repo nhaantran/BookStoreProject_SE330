@@ -11,16 +11,17 @@ import Model.Model;
  * @author nhaantran
  */
 public class ModelAction<T> {
-    private Model model;
+    private T model;
     
-    public ModelAction(Model model){
+    public ModelAction(T model){
         this.model = model;
     }
     public ModelAction(){
         this.model = null;
     }
-    
-    public String getID(){
-        return this.model.getID();
+    public T getmodel(){
+        return this.model;
     }
+    
+   
 }

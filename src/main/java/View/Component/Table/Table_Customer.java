@@ -8,8 +8,11 @@ package View.Component.Table;
  *
  * @author nhaantran
  */
+import Model.Customer.Customer;
+import Model.Customer.CustomerDao;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -64,6 +67,20 @@ public class Table_Customer extends JTable {
             }
         });
         
+    }
+    
+    public void loadDatatoTable(ArrayList<Customer> list){
+        try{
+//            
+            for(Customer s : list){
+                this.addRow(new Object[]{s.getID(),s.getName(), s.getPhone(), 
+                    s.getRegisterDate(), s.getTotal(),new CustomerDao(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
     @Override

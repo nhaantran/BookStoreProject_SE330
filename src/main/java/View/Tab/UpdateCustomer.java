@@ -4,6 +4,9 @@
  */
 package View.Tab;
 
+import Model.Customer.Customer;
+import Model.Customer.CustomerDao;
+import View.Component.Table.Table_Customer;
 import java.awt.Color;
 
 /**
@@ -15,11 +18,15 @@ public class UpdateCustomer extends javax.swing.JDialog {
     /**
      * Creates new form UpdateCustomer
      */
-    public UpdateCustomer(java.awt.Frame parent) {
+    private Customer customer;
+    public UpdateCustomer(java.awt.Frame parent, Customer ctm) {
         super(parent);
         initComponents();
         this.setTitle("Update Customer");
         this.setLocationRelativeTo(null);
+        this.customer = new Customer();
+        this.customer = ctm;
+        txtid.setText(this.customer.getID());
     }
 
     /**
@@ -33,7 +40,7 @@ public class UpdateCustomer extends javax.swing.JDialog {
 
         updatebookpane1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        rdbtnname3 = new javax.swing.JRadioButton();
+        rdbtnname = new javax.swing.JRadioButton();
         rdbtnphone = new javax.swing.JRadioButton();
         txtid = new javax.swing.JTextField();
         txtname = new javax.swing.JTextField();
@@ -48,11 +55,11 @@ public class UpdateCustomer extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Input ID:");
 
-        rdbtnname3.setForeground(new java.awt.Color(0, 0, 0));
-        rdbtnname3.setText("Name");
-        rdbtnname3.addActionListener(new java.awt.event.ActionListener() {
+        rdbtnname.setForeground(new java.awt.Color(0, 0, 0));
+        rdbtnname.setText("Name");
+        rdbtnname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbtnname3ActionPerformed(evt);
+                rdbtnnameActionPerformed(evt);
             }
         });
 
@@ -66,6 +73,7 @@ public class UpdateCustomer extends javax.swing.JDialog {
 
         txtid.setForeground(new java.awt.Color(153, 153, 153));
         txtid.setText("Enter ID");
+        txtid.setEnabled(false);
         txtid.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtidFocusGained(evt);
@@ -104,6 +112,11 @@ public class UpdateCustomer extends javax.swing.JDialog {
         btnupdate.setForeground(new java.awt.Color(255, 255, 255));
         btnupdate.setText("Update Customer");
         btnupdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout updatebookpane1Layout = new javax.swing.GroupLayout(updatebookpane1);
         updatebookpane1.setLayout(updatebookpane1Layout);
@@ -113,7 +126,7 @@ public class UpdateCustomer extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rdbtnphone)
-                    .addComponent(rdbtnname3)
+                    .addComponent(rdbtnname)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +138,7 @@ public class UpdateCustomer extends javax.swing.JDialog {
             .addGroup(updatebookpane1Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         updatebookpane1Layout.setVerticalGroup(
             updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +149,7 @@ public class UpdateCustomer extends javax.swing.JDialog {
                     .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rdbtnname3)
+                    .addComponent(rdbtnname)
                     .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,34 +157,30 @@ public class UpdateCustomer extends javax.swing.JDialog {
                     .addComponent(txtphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnupdate)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(updatebookpane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(updatebookpane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(updatebookpane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(updatebookpane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdbtnname3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnname3ActionPerformed
+    private void rdbtnnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnnameActionPerformed
         // TODO add your handling code here:
         if(txtname.isEnabled())
         txtname.setEnabled(false);
         else txtname.setEnabled(true);
 
-    }//GEN-LAST:event_rdbtnname3ActionPerformed
+    }//GEN-LAST:event_rdbtnnameActionPerformed
 
     private void rdbtnphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbtnphoneActionPerformed
         // TODO add your handling code here:
@@ -228,6 +237,26 @@ public class UpdateCustomer extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtphoneFocusLost
 
+    private void UpdateChoice(){
+        if (rdbtnname.isSelected()) {
+            this.customer.setName(txtname.getText());
+        }
+        if (rdbtnphone.isSelected()) {
+            this.customer.setPhone(txtphone.getText());
+        }
+    }
+    
+    private Table_Customer table = new Table_Customer();
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        UpdateChoice();
+        CustomerDao ctmd = new CustomerDao();
+        ctmd.update(customer);
+        table.loadDatatoTable(ctmd.findAll());
+        this.dispose();
+        
+    }//GEN-LAST:event_btnupdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,7 +287,7 @@ public class UpdateCustomer extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                UpdateCustomer dialog = new UpdateCustomer(new javax.swing.JFrame());
+                UpdateCustomer dialog = new UpdateCustomer(new javax.swing.JFrame(), new Customer());
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -272,20 +301,8 @@ public class UpdateCustomer extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnupdate;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel pane;
-    private javax.swing.JPanel pane1;
-    private javax.swing.JPanel pane2;
     private javax.swing.JRadioButton rdbtnname;
-    private javax.swing.JRadioButton rdbtnname1;
-    private javax.swing.JRadioButton rdbtnname2;
-    private javax.swing.JRadioButton rdbtnname3;
     private javax.swing.JRadioButton rdbtnphone;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtname;

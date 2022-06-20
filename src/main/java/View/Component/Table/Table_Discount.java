@@ -8,8 +8,11 @@ package View.Component.Table;
  *
  * @author nhaantran
  */
+import Model.Discount.Discount;
+import Model.Discount.DiscountDao;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -88,6 +91,19 @@ public class Table_Discount extends JTable {
         p.setOpaque(false);
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         scroll.setBorder(new EmptyBorder(5, 10, 5, 10));
+    }
+    public void loadDatatoTable(ArrayList<Discount> list){
+        try{
+//            
+            for(Discount s : list){
+                this.addRow(new Object[]{s.getID(),s.getName(),
+                    s.getValue(), new ModelAction<Discount>(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
    

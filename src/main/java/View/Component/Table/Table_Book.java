@@ -12,6 +12,7 @@ import Model.Book.Book;
 import Model.Book.BookDao;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -89,4 +90,17 @@ public class Table_Book extends JTable {
         scroll.setBorder(new EmptyBorder(5, 10, 5, 10));
     }
 
+    public void loadDatatoTable(ArrayList<Book> list){
+        try{
+            for(Book s : list){
+                this.addRow(new Object[]{
+                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
+                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new ModelAction<Book>(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }

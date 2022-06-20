@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="885" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="897" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -75,10 +75,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="updatebookpane2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="updatebookpane1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="updatebookpane1" alignment="0" max="32767" attributes="0"/>
                       <Component id="updatebookpane3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="updatebookpane2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -101,8 +101,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="rdbtnnumpages" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="rdbtnprice" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rdbtnyear" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rdbtnnational" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnreleasedate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnamount" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="rdbtnname" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -110,8 +110,8 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtid" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtname" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtnational" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtyear" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtamount" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtreleasedate" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtprice" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtnumpages" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -134,13 +134,13 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="rdbtnnational" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtnational" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnamount" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtamount" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="rdbtnyear" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtyear" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnreleasedate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtreleasedate" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -152,7 +152,7 @@
                           <Component id="rdbtnprice" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtprice" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="8" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -180,18 +180,18 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnnameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rdbtnnational">
+            <Component class="javax.swing.JRadioButton" name="rdbtnamount">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="National"/>
+                <Property name="text" type="java.lang.String" value="Amount"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnnationalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnamountActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rdbtnyear">
+            <Component class="javax.swing.JRadioButton" name="rdbtnreleasedate">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -199,7 +199,7 @@
                 <Property name="text" type="java.lang.String" value="Year"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnyearActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnreleasedateActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbtnnumpages">
@@ -230,6 +230,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Enter ID"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtidFocusGained"/>
@@ -249,30 +250,30 @@
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtnameFocusLost"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtnational">
+            <Component class="javax.swing.JTextField" name="txtamount">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter National"/>
+                <Property name="text" type="java.lang.String" value="Enter Amount"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtnationalFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtnationalFocusLost"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtamountFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtamountFocusLost"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtyear">
+            <Component class="javax.swing.JTextField" name="txtreleasedate">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter Year"/>
+                <Property name="text" type="java.lang.String" value="Enter ReleaseDate"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtyearFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtyearFocusLost"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtreleasedateFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtreleasedateFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtnumpages">
@@ -313,7 +314,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="rdbtnpublisher" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -321,9 +322,11 @@
                           <Component id="rdbtnauthor" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="rdbtnbookcover" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="rdbtntype" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnedition" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtedition" max="32767" attributes="0"/>
                           <Component id="txttype" max="32767" attributes="0"/>
                           <Component id="txtbookcover" max="32767" attributes="0"/>
                           <Component id="txtauthor" max="32767" attributes="0"/>
@@ -362,7 +365,12 @@
                           <Component id="rdbtntype" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txttype" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="8" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rdbtnedition" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtedition" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -501,6 +509,33 @@
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txttypeFocusGained"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txttypeFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbtnedition">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Edition"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtneditionActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtedition">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Enter Edition"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txteditionFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txteditionFocusLost"/>
               </Events>
             </Component>
           </SubComponents>

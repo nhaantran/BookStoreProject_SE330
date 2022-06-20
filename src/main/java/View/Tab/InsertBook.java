@@ -6,6 +6,7 @@ package View.Tab;
 
 import Model.Book.Book;
 import Model.Book.BookDao;
+import View.Component.Table.Table_Book;
 import java.awt.Color;
 
 /**
@@ -57,6 +58,8 @@ public class InsertBook extends javax.swing.JPanel {
         lblinsertname3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtdescription = new javax.swing.JTextArea();
+        lblamount = new javax.swing.JLabel();
+        txtamount = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -350,29 +353,54 @@ public class InsertBook extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(txtdescription);
 
+        lblamount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblamount.setForeground(new java.awt.Color(0, 0, 0));
+        lblamount.setText("Amount:");
+
+        txtamount.setForeground(new java.awt.Color(153, 153, 153));
+        txtamount.setText("Enter Amount");
+        txtamount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtamountFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtamountFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout insertbookpane3Layout = new javax.swing.GroupLayout(insertbookpane3);
         insertbookpane3.setLayout(insertbookpane3Layout);
         insertbookpane3Layout.setHorizontalGroup(
             insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane3Layout.createSequentialGroup()
+            .addGroup(insertbookpane3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblinsertname3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                .addGroup(insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane3Layout.createSequentialGroup()
+                        .addComponent(lblinsertname3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addGroup(insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                    .addGroup(insertbookpane3Layout.createSequentialGroup()
+                        .addComponent(lblamount)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addComponent(txtamount)))
                 .addContainerGap())
         );
         insertbookpane3Layout.setVerticalGroup(
             insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(insertbookpane3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertbookpane3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblamount)
+                    .addComponent(txtamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(insertbookpane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblinsertname3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnadd)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -564,24 +592,30 @@ public class InsertBook extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtpublisherFocusLost
 
-    BookDao std = new BookDao();
-    Book book = new Book();
+    private BookDao std = new BookDao();
+    private Book book = new Book();
+    private Table_Book table = new Table_Book();
     
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
-        
-        book.setName(txtname.getText());
-        book.setReleaseDate(txtreleasedate.getText());
-        book.setDescription(txtdescription.getText());
-        book.setEdition(Float.valueOf(txtedition.getText()));
-        book.setNumPages(Integer.valueOf(txtnumpages.getText()));
-        book.setPrice(Double.valueOf(txtprice.getText()));
-        book.setSupplier(txtsupplier.getText());
-        book.setAuthor(txtauthor.getText());
-        book.setPublisher(txtpublisher.getText());
-        book.setType(txttype.getText());
-        book.setBookCover(txtbookcover.getText());
-        std.add(book);
+        try{
+            book.setName(txtname.getText());
+            book.setReleaseDate(txtreleasedate.getText());
+            book.setDescription(txtdescription.getText());
+            book.setEdition(Float.valueOf(txtedition.getText()));
+            book.setNumPages(Integer.valueOf(txtnumpages.getText()));
+            book.setPrice(Double.valueOf(txtprice.getText()));
+            book.setSupplier(txtsupplier.getText());
+            book.setAuthor(txtauthor.getText());
+            book.setPublisher(txtpublisher.getText());
+            book.setType(txttype.getText());
+            book.setBookCover(txtbookcover.getText());
+            std.add(book);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        this.revalidate();
+        table.loadDatatoTable(std.findAll());
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void txtdescriptionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtdescriptionFocusGained
@@ -600,6 +634,22 @@ public class InsertBook extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtdescriptionFocusLost
 
+    private void txtamountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtamountFocusGained
+        // TODO add your handling code here:
+        if(txtamount.getText().equals("Enter Amount")){
+            txtamount.setText("");
+            txtamount.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtamountFocusGained
+
+    private void txtamountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtamountFocusLost
+        // TODO add your handling code here:
+        if(txtamount.getText().equals("")){
+            txtamount.setText("Enter Amount");
+            txtamount.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_txtamountFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnadd;
@@ -607,6 +657,7 @@ public class InsertBook extends javax.swing.JPanel {
     private javax.swing.JPanel insertbookpane2;
     private javax.swing.JPanel insertbookpane3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblamount;
     private javax.swing.JLabel lblinsertname;
     private javax.swing.JLabel lblinsertname1;
     private javax.swing.JLabel lblinsertname11;
@@ -618,6 +669,7 @@ public class InsertBook extends javax.swing.JPanel {
     private javax.swing.JLabel lblinsertname5;
     private javax.swing.JLabel lblinsertname6;
     private javax.swing.JLabel lblinsertname7;
+    private javax.swing.JTextField txtamount;
     private javax.swing.JTextField txtauthor;
     private javax.swing.JTextField txtbookcover;
     private javax.swing.JTextArea txtdescription;

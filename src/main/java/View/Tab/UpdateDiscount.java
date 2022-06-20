@@ -4,6 +4,9 @@
  */
 package View.Tab;
 
+import Model.Discount.Discount;
+import Model.Discount.DiscountDao;
+import View.Component.Table.Table_Discount;
 import java.awt.Color;
 
 /**
@@ -15,11 +18,15 @@ public class UpdateDiscount extends javax.swing.JDialog {
     /**
      * Creates new form UpdateDiscountt
      */
-    public UpdateDiscount(java.awt.Frame parent) {
+    private Discount discount;
+    public UpdateDiscount(java.awt.Frame parent, Discount discount) {
         super(parent);
         initComponents();
         this.setTitle("Update Discount");
         this.setLocationRelativeTo(null);
+        this.discount = new Discount();
+        this.discount = discount;
+        txtid.setText(this.discount.getID());
     }
 
     /**
@@ -66,6 +73,7 @@ public class UpdateDiscount extends javax.swing.JDialog {
 
         txtid.setForeground(new java.awt.Color(153, 153, 153));
         txtid.setText("Enter ID");
+        txtid.setEnabled(false);
         txtid.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtidFocusGained(evt);
@@ -104,6 +112,11 @@ public class UpdateDiscount extends javax.swing.JDialog {
         btnupdate.setForeground(new java.awt.Color(255, 255, 255));
         btnupdate.setText("Update Discount");
         btnupdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout updatebookpane1Layout = new javax.swing.GroupLayout(updatebookpane1);
         updatebookpane1.setLayout(updatebookpane1Layout);
@@ -226,6 +239,27 @@ public class UpdateDiscount extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtvalueFocusLost
 
+    private Table_Discount table = new Table_Discount();
+    
+    private void UpdateChoice(){
+        if (rdbtnname.isSelected()) {
+            this.discount.setName(txtname.getText());
+        }
+        if (rdbtnvalue.isSelected()) {
+            this.discount.setValue(Double.valueOf(txtvalue.getText()));
+        }
+    }
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        UpdateChoice();
+        DiscountDao dcd = new DiscountDao();
+        dcd.update(this.discount);
+        table.loadDatatoTable(dcd.findAll());
+        this.dispose();
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -257,7 +291,7 @@ public class UpdateDiscount extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                UpdateDiscount dialog = new UpdateDiscount(new javax.swing.JFrame());
+                UpdateDiscount dialog = new UpdateDiscount(new javax.swing.JFrame(), new Discount());
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

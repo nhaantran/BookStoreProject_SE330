@@ -31,21 +31,14 @@ public class Shopping extends javax.swing.JDialog {
         loadDatatoTable(book.findAll());
     }
 
-    private JLabel lblamount;
-    public void setTextlblamount(String text){
-        lblamount.setText(text);
-    }
-    public String getTextlblamount(){
-        return lblamount.getText();
-    }
+  
     
     private void loadDatatoTable(ArrayList<Book> list){
-        lblamount = new JLabel("0");
         try{
             for(Book s : list){
                 table.addRow(new Object[]{
                     s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
-                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",lblamount,new ModelAction(s)
+                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), "not set",new ModelAction(s)
                 });   
             }
         }catch(Exception e)
@@ -77,11 +70,11 @@ public class Shopping extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Buying", "Action"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
