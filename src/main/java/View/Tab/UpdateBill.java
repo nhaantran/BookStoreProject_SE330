@@ -121,9 +121,9 @@ public class UpdateBill extends javax.swing.JPanel {
                         .addComponent(txtname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(updatebookpane1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(78, 78, 78)
                 .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         updatebookpane1Layout.setVerticalGroup(
             updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,9 +140,9 @@ public class UpdateBill extends javax.swing.JPanel {
                 .addGroup(updatebookpane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rdbtnvalue)
                     .addComponent(txtvalue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(btnupdate)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -15,7 +15,7 @@ import java.sql.Statement;
  */
 public class DatabaseConnector {
     public static Connection openConnection() throws SQLException {
-        String url = "jdbc:sqlserver://LAPTOP-0HJSRM3N\\SQLEXPRESS:1433;databaseName=BookStoreProject;encrypt=true;trustServerCertificate=true;";
+        String url = "jdbc:sqlserver://LAPTOP-0HJSRM3N\\SQLEXPRESS:1433;databaseName=BookStore_ProjectSE330;encrypt=true;trustServerCertificate=true;";
         String unameDB = "sa";
         String passDB = "1285670243";
 

@@ -141,13 +141,6 @@ public class Book extends Unit {
     public void setAmount(int Amount) {
         this.Amount = Amount;
     }
-
-    @Override
-    public String toString() {
-        return "Book{" + "Description=" + Description + ", Publisher=" + Publisher + ", Supplier=" + Supplier + ", BookCover=" + BookCover + ", Author=" + Author + ", Type=" + Type + ", Edition=" + Edition + ", ReleaseDate=" + ReleaseDate + ", NumPages=" + NumPages + ", Price=" + Price + ", Amount=" + Amount + '}';
-    }
-    
-    
     
     
 }

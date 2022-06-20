@@ -13,43 +13,43 @@ import java.util.ArrayList;
  */
 public class Bill extends Model{
     
-    private String ManagerName;
-    private String CustomerName;
+    private int CustomerID;
+    private int DiscountID;
     private double Price;
     private String Date;
     private ArrayList<BillDetail> Detail;
 
     public Bill(){
-        this.ManagerName = "";
-        this.CustomerName = "";
+        this.CustomerID = 0;
+        this.DiscountID = 0;
         this.Price = 0.0;
         this.Date = "";
         this.Detail = new ArrayList();
     }
     
-    public Bill(String ManagerName, String CustomerName, double Price, String Date, ArrayList<BillDetail> Detail, String ID) {
+    public Bill(int CustomerID, int DiscountID, double Price, String Date, ArrayList<BillDetail> Detail, String ID) {
         super(ID);
-        this.ManagerName = ManagerName;
-        this.CustomerName = CustomerName;
+        this.CustomerID = CustomerID;
+        this.DiscountID = DiscountID;
         this.Price = Price;
         this.Date = Date;
         this.Detail = Detail;
     }
 
-    public String getManagerName() {
-        return ManagerName;
+    public int getCustomerID() {
+        return CustomerID;
     }
 
-    public void setManagerName(String ManagerName) {
-        this.ManagerName = ManagerName;
+    public void setCustomerID(int CustomerID) {
+        this.CustomerID = CustomerID;
     }
 
-    public String getCustomerName() {
-        return CustomerName;
+    public int getDiscountID() {
+        return DiscountID;
     }
 
-    public void setCustomerName(String CustomerName) {
-        this.CustomerName = CustomerName;
+    public void setDiscountID(int DiscountID) {
+        this.DiscountID = DiscountID;
     }
 
     public double getPrice() {

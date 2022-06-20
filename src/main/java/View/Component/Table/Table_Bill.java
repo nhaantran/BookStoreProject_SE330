@@ -8,8 +8,8 @@ package View.Component.Table;
  *
  * @author nhaantran
  */
-import Model.Book.Book;
-import Model.Book.BookDao;
+import Model.Bill.Bill;
+import Model.Bill.BillDao;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 
-public class Table_Book extends JTable {
+public class Table_Bill extends JTable {
 
-    public Table_Book() {
+    public Table_Bill() {
         setShowHorizontalLines(true);
         setGridColor(new Color(230, 230, 230));
         setRowHeight(40);
@@ -33,7 +33,7 @@ public class Table_Book extends JTable {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
                 TableHeader header = new TableHeader(o + "");
-                if (i1 == 14) {
+                if (i1 == 6 ) {
                     header.setHorizontalAlignment(JLabel.CENTER);
                 }
                 return header;
@@ -42,15 +42,15 @@ public class Table_Book extends JTable {
         setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean focus, int i, int i1) {
-                if (o instanceof ModelAction book){
-                    Action cell = new Action(book);
+                if (o instanceof ModelAction data) {
+                    Action cell = new Action(data);
                     if (selected) {
                         cell.setBackground(new Color(239, 244, 255));
                     } else {
                         cell.setBackground(Color.WHITE);
                     }
                     return cell;
-                } else {
+                }else {
                     Component com = super.getTableCellRendererComponent(jtable, o, selected, focus, i, i1);
                     com.setBackground(Color.WHITE);
                     setBorder(noFocusBorder);
@@ -62,14 +62,30 @@ public class Table_Book extends JTable {
                     }
                     return com;
                 }
+
+                
             }
         });
-
+        
     }
-
+    
+    public void loadDatatoTable(ArrayList<Bill> list){
+        try{
+//            
+            for(Bill s : list){
+                this.addRow(new Object[]{s.getID(),s.getCustomerID(), s.getDiscountID(), 
+                    s.getDate(), s.getPrice(),new BillDao(s)
+                });   
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
     @Override
     public TableCellEditor getCellEditor(int row, int col) {
-        if (col == 13) {
+        if (col == 5) {
             return new TableCellAction();
         } else {
             return super.getCellEditor(row, col);
@@ -80,8 +96,8 @@ public class Table_Book extends JTable {
         DefaultTableModel model = (DefaultTableModel) getModel();
         model.addRow(row);
     }
-
-    public void ScrollBarFix(JScrollPane scroll) {
+    
+    public void ScrollBarFix(JScrollPane scroll){
         scroll.getViewport().setBackground(Color.WHITE);
         scroll.setVerticalScrollBar(new ScrollBarCustom());
         JPanel p = new JPanel();
@@ -89,18 +105,6 @@ public class Table_Book extends JTable {
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         scroll.setBorder(new EmptyBorder(5, 10, 5, 10));
     }
-
-    public void loadDatatoTable(ArrayList<Book> list){
-        try{
-            for(Book s : list){
-                this.addRow(new Object[]{
-                    s.getID(),s.getName(), s.getDescription(),s.getSupplier(),s.getAuthor(),s.getPublisher(),s.getEdition(),
-                    s.getType(),s.getBookCover(), s.getReleaseDate(), s.getNumPages(), s.getPrice(), s.getAmount(),new ModelAction<Book>(s)
-                });   
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
+    
+   
 }

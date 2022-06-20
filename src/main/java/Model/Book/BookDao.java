@@ -42,6 +42,7 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
         std.setNumPages(resultSet.getInt("NumPages"));
         std.setPrice(resultSet.getDouble("Price"));
         std.setPublisher(resultSet.getString("Publisher"));
+        std.setAmount(resultSet.getInt("Amount"));
         return std;
     }
 
@@ -53,8 +54,8 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
     @Override
     public boolean add(Book t) {
         String sql = "INSERT INTO Book ("
-                + "Name, Description, Author, Supplier,Edition,Type,BookCover, ReleaseDate, NumPages, Price, Publisher) "
-                + "VALUES(?,?,?,?,?,?,?,?,?,?,?) ";
+                + "Name, Description, Author, Supplier,Edition,Type,BookCover, ReleaseDate, NumPages, Price, Publisher, Amount) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?) ";
 
         try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql)) {
             pstmt.setString(1, t.getName());
@@ -68,6 +69,7 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
             pstmt.setInt(9, t.getNumPages());
             pstmt.setDouble(10, t.getPrice());
             pstmt.setString(11, t.getPublisher());
+            pstmt.setInt(12, t.getAmount());
             return pstmt.executeUpdate()>0;
         } catch (SQLException ex) {
             ex.printStackTrace();
