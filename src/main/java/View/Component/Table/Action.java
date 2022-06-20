@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,38 +37,49 @@ public class Action extends javax.swing.JPanel {
         btnedit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if(data.getmodel().getClass() == book.getClass()){
-                    book = (Book) data.getmodel();
-                    UpdateBook udb = new UpdateBook(screen,book);
-                    udb.setVisible(true);
-                    
-                    
-                    
-                }if(data.getmodel().getClass() == discount.getClass()){
-                    discount = (Discount) data.getmodel();
-                    UpdateDiscount udd = new UpdateDiscount(screen,discount);
-                    udd.setVisible(true);
-                    
-                    
-                }if(data.getmodel().getClass() == customer.getClass()){
-                    customer = (Customer) data.getmodel();
-                    UpdateCustomer udd = new UpdateCustomer(screen,customer);
-                    udd.setVisible(true);
+                int response = JOptionPane.showConfirmDialog(screen, "Are you sure?",
+                        "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                    if (data.getmodel().getClass() == book.getClass()) {
+                        book = (Book) data.getmodel();
+                        UpdateBook udb = new UpdateBook(screen, book);
+                        udb.setVisible(true);
+
+                    }
+                    if (data.getmodel().getClass() == discount.getClass()) {
+                        discount = (Discount) data.getmodel();
+                        UpdateDiscount udd = new UpdateDiscount(screen, discount);
+                        udd.setVisible(true);
+
+                    }
+                    if (data.getmodel().getClass() == customer.getClass()) {
+                        customer = (Customer) data.getmodel();
+                        UpdateCustomer udd = new UpdateCustomer(screen, customer);
+                        udd.setVisible(true);
+                    }
                 }
+
             }
         });
         btndelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if(data.getmodel().getClass() == book.getClass()){
-                    book = (Book) data.getmodel();
-                    bkd.delete(book);
-                }if(data.getmodel().getClass() == discount.getClass()){
-                    discount = (Discount) data.getmodel();
-                    dcd.delete(discount);
-                }if(data.getmodel().getClass() == customer.getClass()){
-                    customer = (Customer) data.getmodel();
-                    ctmd.delete(customer);
+                
+                int response = JOptionPane.showConfirmDialog(screen, "Are you sure?",
+                        "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (response == JOptionPane.YES_OPTION) {
+                    if (data.getmodel().getClass() == book.getClass()) {
+                        book = (Book) data.getmodel();
+                        bkd.delete(book);
+                    }
+                    if (data.getmodel().getClass() == discount.getClass()) {
+                        discount = (Discount) data.getmodel();
+                        dcd.delete(discount);
+                    }
+                    if (data.getmodel().getClass() == customer.getClass()) {
+                        customer = (Customer) data.getmodel();
+                        ctmd.delete(customer);
+                    }
                 }
             }
         });

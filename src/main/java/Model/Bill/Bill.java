@@ -15,25 +15,28 @@ public class Bill extends Model{
     
     private int CustomerID;
     private int DiscountID;
-    private double Price;
+    private String Status;
     private String Date;
+    private String Address;
     private ArrayList<BillDetail> Detail;
 
     public Bill(){
         this.CustomerID = 0;
         this.DiscountID = 0;
-        this.Price = 0.0;
+        this.Status = " ";
         this.Date = "";
         this.Detail = new ArrayList();
+        this.Address ="";
     }
     
-    public Bill(int CustomerID, int DiscountID, double Price, String Date, ArrayList<BillDetail> Detail, String ID) {
+    public Bill(int CustomerID, int DiscountID, String Status, String Date, ArrayList<BillDetail> Detail, String ID, String Address) {
         super(ID);
         this.CustomerID = CustomerID;
         this.DiscountID = DiscountID;
-        this.Price = Price;
+        this.Status = Status;
         this.Date = Date;
         this.Detail = Detail;
+        this.Address = Address;
     }
 
     public int getCustomerID() {
@@ -52,12 +55,12 @@ public class Bill extends Model{
         this.DiscountID = DiscountID;
     }
 
-    public double getPrice() {
-        return Price;
+    public String getStatus() {
+        return Status;
     }
 
-    public void setPrice(double Price) {
-        this.Price = Price;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     public String getDate() {
@@ -74,6 +77,14 @@ public class Bill extends Model{
 
     public void setDetail(ArrayList<BillDetail> Detail) {
         this.Detail = Detail;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
     
     

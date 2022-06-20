@@ -30,11 +30,12 @@ public class BillDao extends ModelAction<Bill> implements IDao<Bill>{
     
     private Bill Create(ResultSet resultSet) throws SQLException {
         Bill std = new Bill();
-        std.setID(String.valueOf(resultSet.getString("BookID")));
+        std.setID(String.valueOf(resultSet.getString("BillID")));
         std.setCustomerID(resultSet.getInt("CustomerID"));
         std.setDiscountID(resultSet.getInt("DiscountID"));
         std.setDate(resultSet.getString("Date"));
-        std.setPrice(resultSet.getDouble("Price"));
+        std.setStatus(resultSet.getString("Status"));
+        std.setAddress(resultSet.getString("Address"));
         return std;
     }
     
@@ -64,15 +65,15 @@ public class BillDao extends ModelAction<Bill> implements IDao<Bill>{
     @Override
     public boolean add(Bill t) {
         String sql = "INSERT INTO Bill ("
-                + "CustomerID, DiscountID, Date, Price) "
-                + "VALUES(?,?,?,?) ";
+                + "CustomerID, DiscountID, Date, Status, Address) "
+                + "VALUES(?,?,?,?,?) ";
 
         try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql)) {
             pstmt.setInt(1, t.getCustomerID());
             pstmt.setInt(2, t.getDiscountID());
             pstmt.setString(3, t.getDate());
-            pstmt.setDouble(4, t.getPrice());
-            
+            pstmt.setString(4, t.getStatus());
+            pstmt.setString(5, t.getAddress());
             return pstmt.executeUpdate()>0;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -84,15 +85,16 @@ public class BillDao extends ModelAction<Bill> implements IDao<Bill>{
     @Override
     public boolean update(Bill t) {
         String sql = "Update Bill Set "
-                + "CustomerID = ?, DiscountID = ?, Date = ?, Price = ? "
+                + "CustomerID = ?, DiscountID = ?, Date = ?, Status = ?, Address = ? "
                 + "where BillID = ?";
         try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
                 ) {
             pstmt.setInt(1, t.getCustomerID());
             pstmt.setInt(2, t.getDiscountID());
             pstmt.setString(3, t.getDate());
-            pstmt.setDouble(4, t.getPrice());
-            pstmt.setInt(5, Integer.valueOf(t.getID()));
+            pstmt.setString(4, t.getStatus());
+            pstmt.setString(5, t.getAddress());
+            pstmt.setInt(6, Integer.valueOf(t.getID()));
             
             return pstmt.executeUpdate()>0;
         } catch (SQLException ex) {

@@ -8,6 +8,7 @@ import Model.Book.Book;
 import Model.Book.BookDao;
 import View.Component.Table.Table_Book;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -612,6 +613,7 @@ public class InsertBook extends javax.swing.JPanel {
         } catch (Exception e){
             e.printStackTrace();
         }
+        JOptionPane.showMessageDialog(this, "Thêm sách", "Thêm", JOptionPane.INFORMATION_MESSAGE);
         this.revalidate();
         table.loadDatatoTable(std.findAll());
     }//GEN-LAST:event_btnaddActionPerformed

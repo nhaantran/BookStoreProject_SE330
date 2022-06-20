@@ -73,8 +73,8 @@ public class Table_Bill extends JTable {
         try{
 //            
             for(Bill s : list){
-                this.addRow(new Object[]{s.getID(),s.getCustomerID(), s.getDiscountID(), 
-                    s.getDate(), s.getPrice(),new BillDao(s)
+                this.addRow(new Object[]{s.getID(),s.getCustomerID(), s.getDiscountID(), s.getStatus(),
+                    s.getAddress(),s.getDate(),new BillDao(s)
                 });   
             }
         }catch(Exception e)

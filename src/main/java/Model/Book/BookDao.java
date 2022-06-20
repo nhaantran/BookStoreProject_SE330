@@ -108,7 +108,7 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
         String sql = "Update Book Set "
                 + "Name = ?, Description = ?, Author = ?, Supplier = ?"
                 + ", Edition = ?, Type = ?, BookCover = ?, ReleaseDate = ?"
-                + ", NumPages = ?, Price = ?, Publisher = ?"
+                + ", NumPages = ?, Price = ?, Publisher = ?, Amount = ?"
                 + "where BookID = " +  Integer.valueOf(t.getID());
         try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
                 ) {
@@ -123,6 +123,7 @@ public class BookDao extends ModelAction<Book> implements IDao<Book>{
             pstmt.setInt(9, t.getNumPages());
             pstmt.setDouble(10, t.getPrice());
             pstmt.setString(11, t.getPublisher());
+            pstmt.setInt(12, t.getAmount());
             return pstmt.executeUpdate()>0;
         } catch (SQLException ex) {
             ex.printStackTrace();
