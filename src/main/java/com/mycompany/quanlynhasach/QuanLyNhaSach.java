@@ -5,6 +5,8 @@
 
 package com.mycompany.quanlynhasach;
 
+import View.Login;
+
 /**
  *
  * @author nhaantran
@@ -12,6 +14,7 @@ package com.mycompany.quanlynhasach;
 public class QuanLyNhaSach {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Login screen = new Login();
+        screen.setVisible(true);
     }
 }
