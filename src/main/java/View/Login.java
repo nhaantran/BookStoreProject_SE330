@@ -4,11 +4,13 @@
  */
 package View;
 
+import Model.Manager.ManagerDao;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -274,13 +276,16 @@ public class Login extends javax.swing.JFrame {
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:
+        ManagerDao login = new ManagerDao();
+        if(login.find(txtemail.getText(), txtpassword.getPassword())){
+            Home screen = new Home();
+            screen.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Wrong username or password", "Please input again!", JOptionPane.WARNING_MESSAGE);
+            txtpassword.setText("password");
+        }
         
-        
-        
-        Home screen = new Home();
-        screen.setVisible(true);
-        
-        this.dispose();
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void lblcreateaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblcreateaccountMouseClicked

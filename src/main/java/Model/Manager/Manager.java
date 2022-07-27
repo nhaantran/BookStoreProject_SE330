@@ -13,18 +13,21 @@ import Model.Unit;
 public class Manager extends Unit{
     private String Phone;
     private String Email;
-
+    private String Password;
+    
     public Manager() {
         super();
         this.Phone = "";
         this.Email = "";
+        this.Password = "";
     }
 
     
-    public Manager(String Phone, String Email, String Name, String ID) {
+    public Manager(String Phone, String Email, String Password, String Name, String ID) {
         super(Name, ID);
         this.Phone = Phone;
         this.Email = Email;
+        this.Password = Password;
     }
 
     public String getPhone() {
@@ -41,6 +44,14 @@ public class Manager extends Unit{
 
     public void setEmail(String Email) {
         this.Email = Email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
 
     
