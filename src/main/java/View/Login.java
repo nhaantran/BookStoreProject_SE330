@@ -5,6 +5,8 @@
 package View;
 
 import Model.Manager.ManagerDao;
+import static Validation.Validate.EmailValidate;
+import static Validation.Validate.PasswordValidate;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
@@ -23,7 +25,6 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        
         this.setLocationRelativeTo(null);
     }
 
@@ -51,6 +52,8 @@ public class Login extends javax.swing.JFrame {
         lblpassword = new javax.swing.JLabel();
         lblcreateaccount = new javax.swing.JLabel();
         jcbshowpassword = new javax.swing.JCheckBox();
+        lblemailformat = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -152,7 +155,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(89, 89, 89)
                         .addComponent(lblbookicon, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                         .addGap(30, 30, 30))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,6 +201,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        lblemailformat.setBackground(new java.awt.Color(255, 0, 51));
+        lblemailformat.setForeground(new java.awt.Color(255, 0, 51));
+        lblemailformat.setText("Email format must be name@yourmail.something");
+
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("Password must not included any special characters");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -208,30 +218,27 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(330, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jcbshowpassword)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblpassword)
-                                            .addComponent(lblloginicon, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(113, 113, 113))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnlogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jcbremember)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                                            .addComponent(lblforgetpassword))
-                                        .addComponent(txtpassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jcbshowpassword)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblloginicon, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(113, 113, 113))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnlogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jcbremember)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                                        .addComponent(lblforgetpassword))
+                                    .addComponent(txtpassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabel2)
+                                .addComponent(lblpassword)
+                                .addComponent(lblemailformat))
+                            .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(lblcreateaccount)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(96, 96, 96)
+                        .addComponent(lblcreateaccount)))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,23 +247,27 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(lblloginicon, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblemail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblemailformat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblpassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jcbshowpassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbremember)
-                    .addComponent(lblforgetpassword))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblforgetpassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jcbremember, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(btnlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblcreateaccount)
-                .addGap(97, 97, 97))
+                .addGap(60, 60, 60))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -274,18 +285,28 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private boolean LoginValidate(){
+        return (EmailValidate(txtemail.getText()) || PasswordValidate(txtpassword.getPassword()));
+    }
+    
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:
         ManagerDao login = new ManagerDao();
-        if(login.find(txtemail.getText(), txtpassword.getPassword())){
-            Home screen = new Home();
-            screen.setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, "Wrong username or password", "Please input again!", JOptionPane.WARNING_MESSAGE);
-            txtpassword.setText("password");
-        }
-        
+        System.out.println("Value: " + LoginValidate());
+//        if (LoginValidate()) {
+//            if (login.find(txtemail.getText(), txtpassword.getPassword())) {
+//                JOptionPane.showMessageDialog(this, "Login successfully!");
+//                Home screen = new Home();
+//                screen.setVisible(true);
+//                this.dispose();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Wrong username or password! Please try again!", "Something go wrong!", JOptionPane.WARNING_MESSAGE);
+//                txtpassword.setText("password");
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(this, "Wrong format! Please try again", "Something go wrong!", JOptionPane.WARNING_MESSAGE);
+//        }
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void lblcreateaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblcreateaccountMouseClicked
@@ -411,6 +432,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnlogin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
@@ -419,6 +441,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblbookicon;
     private javax.swing.JLabel lblcreateaccount;
     private javax.swing.JLabel lblemail;
+    private javax.swing.JLabel lblemailformat;
     private javax.swing.JLabel lblforgetpassword;
     private javax.swing.JLabel lblloginicon;
     private javax.swing.JLabel lblpassword;

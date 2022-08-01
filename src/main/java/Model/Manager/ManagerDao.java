@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,50 +34,31 @@ public class ManagerDao extends ModelAction<Manager> implements IDao<Manager>{
     }
     
     public boolean find(String account, char[] password){
-        String sql = "select * from Manager"
-                + " where Email = '" + account + "'" 
-                + " and Password = '" + String.valueOf(password) + "';" ;
-        try {
-            // connect databse
+        
+            String sql = "select * from Manager"
+                    + " where Email = '" + account + "'"
+                    + " and Password = '" + String.valueOf(password) + "';";
+            try {
+                // connect databse
 
-            Connection con = DatabaseConnector.openConnection();
-            Statement stm = con.createStatement();
-            ResultSet resultSet = stm.executeQuery(sql);
+                Connection con = DatabaseConnector.openConnection();
+                Statement stm = con.createStatement();
+                ResultSet resultSet = stm.executeQuery(sql);
 
-            if (resultSet.next()) {
-                return true;
+                if (resultSet.next()) {
+                    return true;
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        
         return false;
     }
     
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX
-            = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-
     
-    public static boolean EmailValidate(String emailStr) {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
-        System.out.println(emailStr);
-        return matcher.find();
-    }
-
-    public static final Pattern VALID_PASSWORD_REGEX
-            = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", Pattern.CASE_INSENSITIVE);
     
-    public static boolean PasswordValidate(char[] passwordchar) {
-        Matcher matcher = VALID_PASSWORD_REGEX.matcher(String.valueOf(passwordchar));
-        System.out.println(passwordchar);
-        return matcher.find();
-    }
     
-    private boolean Login(String account, char[] password){
-        if(EmailValidate(account) && PasswordValidate(password))
-            return true;
-        else return false;
-    }
     
     private Manager Create(ResultSet resultSet) throws SQLException {
         Manager std = new Manager();
@@ -99,12 +81,35 @@ public class ManagerDao extends ModelAction<Manager> implements IDao<Manager>{
 
     @Override
     public boolean add(Manager t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "INSERT INTO Manager ("
+                + "Name, Email, Password) "
+                + "VALUES(?,?,?) ";
+
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setString(1, t.getName());
+            pstmt.setString(2, t.getEmail());
+            pstmt.setString(3, t.getPassword());
+            
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean update(Manager t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "Update Manager Set "
+                + "Password = ?"
+                + " where Email = " +  t.getEmail();
+        try ( Connection con = DatabaseConnector.openConnection();  PreparedStatement pstmt = con.prepareStatement(sql);
+                ) {
+            pstmt.setString(1, String.valueOf(t.getPassword()));
+            return pstmt.executeUpdate()>0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override

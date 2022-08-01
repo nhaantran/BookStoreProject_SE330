@@ -4,11 +4,17 @@
  */
 package View;
 
+import Model.Manager.Manager;
+import Model.Manager.ManagerDao;
+import static Validation.Validate.EmailValidate;
+import static Validation.Validate.PasswordValidate;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,6 +56,8 @@ public class Forgetpassword extends javax.swing.JFrame {
         txtpasswordconfirm = new javax.swing.JPasswordField();
         jcbshowpassword = new javax.swing.JCheckBox();
         jcbshowpassword1 = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -71,6 +79,11 @@ public class Forgetpassword extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtpasswordFocusLost(evt);
+            }
+        });
+        txtpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpasswordActionPerformed(evt);
             }
         });
 
@@ -105,7 +118,7 @@ public class Forgetpassword extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -194,6 +207,12 @@ public class Forgetpassword extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel1.setText("Password must not included any special characters");
+
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("Email format must be name@yourmail.something");
+
         javax.swing.GroupLayout JPanel1Layout = new javax.swing.GroupLayout(JPanel1);
         JPanel1.setLayout(JPanel1Layout);
         JPanel1Layout.setHorizontalGroup(
@@ -205,18 +224,18 @@ public class Forgetpassword extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblnewpassword)
-                                    .addComponent(lblforgetpasswordicon)
-                                    .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnconfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                        .addComponent(txtpasswordconfirm, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtpassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addComponent(jcbshowpassword1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblconfirm, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jcbshowpassword, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(lblnewpassword)
+                            .addComponent(lblforgetpasswordicon)
+                            .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnconfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                .addComponent(txtpasswordconfirm, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtpassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jcbshowpassword1)
+                            .addComponent(lblconfirm)
+                            .addComponent(jcbshowpassword)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addGap(0, 40, Short.MAX_VALUE))
                     .addGroup(JPanel1Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
@@ -230,29 +249,33 @@ public class Forgetpassword extends javax.swing.JFrame {
             .addGroup(JPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(lblforgetpasswordicon, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblemail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblnewpassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jcbshowpassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblconfirm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txtpasswordconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbshowpassword1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblstatement)
                     .addComponent(lbllogin))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -270,9 +293,35 @@ public class Forgetpassword extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean ForgetPasswordValidate(){
+        return (EmailValidate(txtemail.getText()) || PasswordValidate(txtpassword.getPassword()));
+    }
+    
     private void btnconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconfirmActionPerformed
         // TODO add your handling code here:
+        Manager manager = new Manager();
+        ManagerDao create = new ManagerDao();
         
+        if (!Arrays.equals(txtpasswordconfirm.getPassword(),txtpassword.getPassword())) {
+            JOptionPane.showMessageDialog(this, "Reconfirm your new password! Please try again", "Something go wrong!", JOptionPane.WARNING_MESSAGE);
+            txtpassword.setText("password");
+            txtpasswordconfirm.setText("password");
+        } else {
+            if(ForgetPasswordValidate()){
+                manager.setEmail(txtemail.getText());
+                manager.setPassword(String.valueOf(txtpassword.getPassword()));
+                create.update(manager);
+                JOptionPane.showMessageDialog(this, "Update password successfully");
+                Login screen = new Login();
+                screen.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Wrong format! Please try again", "Something go wrong!", JOptionPane.WARNING_MESSAGE);
+                txtpassword.setText("password");
+                txtpassword.setText("password");
+            }
+            
+        }
     }//GEN-LAST:event_btnconfirmActionPerformed
 
     private void lblloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblloginMouseClicked
@@ -360,6 +409,10 @@ public class Forgetpassword extends javax.swing.JFrame {
         evt.getComponent().setFont(original);
     }//GEN-LAST:event_lblloginMouseExited
 
+    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpasswordActionPerformed
+
     
                                      
 
@@ -405,6 +458,8 @@ public class Forgetpassword extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel1;
     private javax.swing.JButton btnconfirm;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JCheckBox jcbshowpassword;
